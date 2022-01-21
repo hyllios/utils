@@ -8,7 +8,11 @@ calculated with PBEsol and SCAN:
 * _compute\_reaction.py_: computes reaction energies
 
 References:
+
 Dataset: https://archive.materialscloud.org/record/2021.164
+
 pymatgen: https://pymatgen.org/
+
 ase: https://wiki.fysik.dtu.dk/ase/
+
 cif2cell: https://github.com/kmu/cif2cell
