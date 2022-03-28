@@ -1,7 +1,7 @@
 # Computational screening of materials with extreme gap deformation potentials
 Code and Data used for machine learning in "Computational screening of materials with extreme gap deformation potentials".
 
-For the CGCNN model use the data in data.tar.gz. It contains a folder full of cifs, and a list of the corresponding deformation potentials.
+For the CGCNN model use the data in data.tar.gz. It contains a folder with the crystal structures (in cif format) and a list of the corresponding deformation potentials.
 
 Install the CGCNN code from https://github.com/txie-93/cgcnn and run it with:
 ```bash
