@@ -19,4 +19,4 @@ compile features
 * run `python3 compileInputFeatures.py <MaterialsProjectAPIKey>` to generate the training features *external/matFeature.parquet* with *\<MaterialsProjectAPIKey>* being the user's  API Key for accessing data of the Materials Project via MPRester
 
 train models & predict volumes
-* run `python3 predictVolumes.py` to train & evaluate the models. The predicted volumes (\*.dat) are exported together with the feature importances (\*.ft) and trained models models (\*.md) ino the directory *data*
+* run `python3 predictVolumes.py` to train & evaluate the models. The predicted volumes (\*.dat) are exported together with the feature importances (\*.ft) and trained models (\*.md) into the directory *data*
