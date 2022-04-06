@@ -10,7 +10,7 @@ ensure required python packages
 * matminer, pymatgen, scikit-learn 
 
 provide external dependences
-* create the subdirectory *external* and copy into it the MAPLE implementation *MAPLE.py* of Plumb et al. [https://github.com/GDPlumb/MAPLE, arXiv:1807.02910]
+* create the subdirectory *external* and copy into it the MAPLE implementation *MAPLE.py* of Plumb et al. [https://github.com/GDPlumb/MAPLE, https://doi.org/10.48550/arXiv.1807.02910]
 * copy the compressed json file *2021.04.06_ps.json.bz2* [https://doi.org/10.24435/materialscloud:ka-br ] with the PBEsol calculations of Schmidt et al. into the directory *external*
 * run `python3 provideDataForm.py` to generate the file *external/ICSDParams.csv* containing the required ICSD-IDs
 * complement this form with the missing experimental volumes (volume_ICSD) and temperatures (TInK_ICSD)
