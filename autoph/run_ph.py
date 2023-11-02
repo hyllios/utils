@@ -285,10 +285,11 @@ def get_espresso_structure(structure):
       coords_are_cartesian=True,
       properties=s.properties,
     )
-    if not any(map(new_s.is_periodic_image, new_sites)):
-      new_sites.append(new_s)
+  # tolerance and validate_proximity suggested by Max Großmann
+  if not any([new_s.is_periodic_image(ns, tolerance=new_s.position_atol) for ns in new_sites]):
+    new_sites.append(new_s)
 
-  return espresso_in, Structure.from_sites(new_sites)
+  return espresso_in, Structure.from_sites(new_sites, to_unit_cell=True, validate_proximity=True)
 
 
 def get_kpoints(structure, kppa=1500):
