@@ -1,0 +1,248 @@
+2024-05-28 14:05:19,083 INFO    StreamThr :2208158 [internal.py:wandb_internal():86] W&B internal server running at pid: 2208158, started at: 2024-05-28 14:05:19.082297
+2024-05-28 14:05:19,084 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status
+2024-05-28 14:05:19,085 INFO    WriterThread:2208158 [datastore.py:open_for_write():87] open: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/run-9445dt7o.wandb
+2024-05-28 14:05:19,104 DEBUG   SenderThread:2208158 [sender.py:send():382] send: header
+2024-05-28 14:05:19,135 DEBUG   SenderThread:2208158 [sender.py:send():382] send: run
+2024-05-28 14:05:19,166 INFO    SenderThread:2208158 [sender.py:_maybe_setup_resume():763] checking resume status for None/toluene-example/9445dt7o
+2024-05-28 14:05:19,743 INFO    SenderThread:2208158 [dir_watcher.py:__init__():211] watching files in: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files
+2024-05-28 14:05:19,743 INFO    SenderThread:2208158 [sender.py:_start_run_threads():1136] run started: 9445dt7o with start time 1716897919.081851
+2024-05-28 14:05:19,746 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: check_version
+2024-05-28 14:05:19,746 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: check_version
+2024-05-28 14:05:19,834 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: run_start
+2024-05-28 14:05:19,866 DEBUG   HandlerThread:2208158 [system_info.py:__init__():27] System info init
+2024-05-28 14:05:19,866 DEBUG   HandlerThread:2208158 [system_info.py:__init__():42] System info init done
+2024-05-28 14:05:19,866 INFO    HandlerThread:2208158 [system_monitor.py:start():194] Starting system monitor
+2024-05-28 14:05:19,866 INFO    SystemMonitor:2208158 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-05-28 14:05:19,867 INFO    HandlerThread:2208158 [system_monitor.py:probe():214] Collecting system info
+2024-05-28 14:05:19,868 INFO    SystemMonitor:2208158 [interfaces.py:start():190] Started cpu monitoring
+2024-05-28 14:05:19,870 INFO    SystemMonitor:2208158 [interfaces.py:start():190] Started disk monitoring
+2024-05-28 14:05:19,871 INFO    SystemMonitor:2208158 [interfaces.py:start():190] Started gpu monitoring
+2024-05-28 14:05:19,872 INFO    SystemMonitor:2208158 [interfaces.py:start():190] Started memory monitoring
+2024-05-28 14:05:19,873 INFO    SystemMonitor:2208158 [interfaces.py:start():190] Started network monitoring
+2024-05-28 14:05:19,878 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:19,878 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:19,927 DEBUG   HandlerThread:2208158 [system_info.py:probe():151] Probing system
+2024-05-28 14:05:19,938 DEBUG   HandlerThread:2208158 [system_info.py:_probe_git():136] Probing git
+2024-05-28 14:05:19,971 DEBUG   HandlerThread:2208158 [system_info.py:_probe_git():144] Probing git done
+2024-05-28 14:05:19,971 DEBUG   HandlerThread:2208158 [system_info.py:probe():199] Probing system done
+2024-05-28 14:05:19,972 DEBUG   HandlerThread:2208158 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-91-generic-x86_64-with-glibc2.31', 'python': '3.9.17', 'heartbeatAt': '2024-05-28T12:05:19.927602', 'startedAt': '2024-05-28T12:05:19.062659', 'docker': None, 'cuda': None, 'args': ('configs/example.yaml',), 'state': 'running', 'program': '/home/users/loewanc6/miniconda3/envs/nequip/bin/nequip-train', 'codePathLocal': None, 'git': {'remote': None, 'commit': '4e2a46ad957cb0acd679e8f6b249751ffd9b4fa3'}, 'email': 'antoine.loew93@gmail.com', 'root': '/home/storage/loewanc6/Nequip/Nequip_phonon/nequip', 'host': 'hood', 'username': 'loewanc6', 'executable': '/home/users/loewanc6/miniconda3/envs/nequip/bin/python3.9', 'cpu_count': 10, 'cpu_count_logical': 20, 'cpu_freq': {'current': 3583.10855, 'min': 1200.0, 'max': 4560.0}, 'cpu_freq_per_core': [{'current': 3799.999, 'min': 1200.0, 'max': 4700.0}, {'current': 3742.539, 'min': 1200.0, 'max': 4600.0}, {'current': 3735.22, 'min': 1200.0, 'max': 4500.0}, {'current': 3703.325, 'min': 1200.0, 'max': 4500.0}, {'current': 1209.31, 'min': 1200.0, 'max': 4600.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4700.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4700.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4700.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}, {'current': 3700.0, 'min': 1200.0, 'max': 4500.0}], 'disk': {'/': {'total': 61.42886734008789, 'used': 46.667362213134766}}, 'gpu': 'NVIDIA T1000', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA T1000', 'memory_total': 4294967296}], 'memory': {'total': 62.48615646362305}}
+2024-05-28 14:05:19,972 INFO    HandlerThread:2208158 [system_monitor.py:probe():224] Finished collecting system info
+2024-05-28 14:05:19,972 INFO    HandlerThread:2208158 [system_monitor.py:probe():227] Publishing system info
+2024-05-28 14:05:19,973 DEBUG   HandlerThread:2208158 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-05-28 14:05:20,746 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_created():271] file/dir created: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/conda-environment.yaml
+2024-05-28 14:05:21,880 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:21,880 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:23,882 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:23,883 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:25,884 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:25,884 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:27,886 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:27,886 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:29,887 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:29,888 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:30,647 DEBUG   HandlerThread:2208158 [system_info.py:_save_conda():220] Saving conda packages done
+2024-05-28 14:05:30,650 INFO    HandlerThread:2208158 [system_monitor.py:probe():229] Finished publishing system info
+2024-05-28 14:05:30,671 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:30,672 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-28 14:05:30,673 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:30,673 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-28 14:05:30,674 DEBUG   SenderThread:2208158 [sender.py:send():382] send: files
+2024-05-28 14:05:30,674 INFO    SenderThread:2208158 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-05-28 14:05:30,682 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: python_packages
+2024-05-28 14:05:30,683 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: python_packages
+2024-05-28 14:05:30,684 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: stop_status
+2024-05-28 14:05:30,685 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: internal_messages
+2024-05-28 14:05:30,686 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: stop_status
+2024-05-28 14:05:30,752 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/conda-environment.yaml
+2024-05-28 14:05:30,752 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_created():271] file/dir created: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/requirements.txt
+2024-05-28 14:05:30,753 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_created():271] file/dir created: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-metadata.json
+2024-05-28 14:05:30,897 DEBUG   SenderThread:2208158 [sender.py:send():382] send: telemetry
+2024-05-28 14:05:31,253 INFO    wandb-upload_0:2208158 [upload_job.py:push():131] Uploaded file /tmp/tmp3mgsullmwandb/df3guu6b-wandb-metadata.json
+2024-05-28 14:05:31,752 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_created():271] file/dir created: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:31,889 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:31,889 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:33,754 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:33,891 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:33,891 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:35,032 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:35,756 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:35,893 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:35,893 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:37,516 DEBUG   SenderThread:2208158 [sender.py:send():382] send: config
+2024-05-28 14:05:37,757 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:37,895 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:37,895 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:39,758 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:39,899 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:39,899 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:40,141 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:41,760 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:41,901 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:41,901 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:43,902 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:43,902 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:44,372 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: partial_history
+2024-05-28 14:05:44,376 DEBUG   SenderThread:2208158 [sender.py:send():382] send: history
+2024-05-28 14:05:44,376 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: summary_record
+2024-05-28 14:05:44,381 INFO    SenderThread:2208158 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-05-28 14:05:44,764 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_created():271] file/dir created: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-summary.json
+2024-05-28 14:05:45,684 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: stop_status
+2024-05-28 14:05:45,684 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: internal_messages
+2024-05-28 14:05:45,685 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: stop_status
+2024-05-28 14:05:45,764 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:45,904 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:45,904 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:45,929 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:47,766 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:47,905 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:47,906 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:49,990 ERROR   gpu       :2208158 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-05-28 14:05:49,991 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:49,991 ERROR   gpu       :2208158 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-05-28 14:05:50,944 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:51,334 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: partial_history
+2024-05-28 14:05:51,336 DEBUG   SenderThread:2208158 [sender.py:send():382] send: history
+2024-05-28 14:05:51,337 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: summary_record
+2024-05-28 14:05:51,340 INFO    SenderThread:2208158 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-05-28 14:05:51,662 DEBUG   SenderThread:2208158 [sender.py:send():382] send: exit
+2024-05-28 14:05:51,662 INFO    SenderThread:2208158 [sender.py:send_exit():589] handling exit code: 255
+2024-05-28 14:05:51,663 INFO    SenderThread:2208158 [sender.py:send_exit():591] handling runtime: 31
+2024-05-28 14:05:51,665 INFO    SenderThread:2208158 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-05-28 14:05:51,665 INFO    SenderThread:2208158 [sender.py:send_exit():597] send defer
+2024-05-28 14:05:51,666 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,666 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 0
+2024-05-28 14:05:51,666 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,667 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 0
+2024-05-28 14:05:51,667 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 1
+2024-05-28 14:05:51,667 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,668 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 1
+2024-05-28 14:05:51,668 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,668 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 1
+2024-05-28 14:05:51,668 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 2
+2024-05-28 14:05:51,669 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,669 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 2
+2024-05-28 14:05:51,670 INFO    HandlerThread:2208158 [system_monitor.py:finish():203] Stopping system monitor
+2024-05-28 14:05:51,670 DEBUG   SystemMonitor:2208158 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-05-28 14:05:51,671 INFO    HandlerThread:2208158 [interfaces.py:finish():202] Joined cpu monitor
+2024-05-28 14:05:51,671 DEBUG   SystemMonitor:2208158 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-05-28 14:05:51,671 INFO    HandlerThread:2208158 [interfaces.py:finish():202] Joined disk monitor
+2024-05-28 14:05:51,672 DEBUG   SystemMonitor:2208158 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-05-28 14:05:51,730 ERROR   gpu       :2208158 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-05-28 14:05:51,730 INFO    HandlerThread:2208158 [interfaces.py:finish():202] Joined gpu monitor
+2024-05-28 14:05:51,730 INFO    HandlerThread:2208158 [interfaces.py:finish():202] Joined memory monitor
+2024-05-28 14:05:51,731 INFO    HandlerThread:2208158 [interfaces.py:finish():202] Joined network monitor
+2024-05-28 14:05:51,732 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,732 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 2
+2024-05-28 14:05:51,732 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 3
+2024-05-28 14:05:51,733 DEBUG   SenderThread:2208158 [sender.py:send():382] send: stats
+2024-05-28 14:05:51,733 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,734 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 3
+2024-05-28 14:05:51,735 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,735 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 3
+2024-05-28 14:05:51,735 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 4
+2024-05-28 14:05:51,736 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,736 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 4
+2024-05-28 14:05:51,736 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,737 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 4
+2024-05-28 14:05:51,737 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 5
+2024-05-28 14:05:51,737 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,738 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 5
+2024-05-28 14:05:51,738 DEBUG   SenderThread:2208158 [sender.py:send():382] send: summary
+2024-05-28 14:05:51,740 INFO    SenderThread:2208158 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-05-28 14:05:51,740 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,740 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 5
+2024-05-28 14:05:51,740 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 6
+2024-05-28 14:05:51,741 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,741 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 6
+2024-05-28 14:05:51,741 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,742 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 6
+2024-05-28 14:05:51,742 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 7
+2024-05-28 14:05:51,742 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: status_report
+2024-05-28 14:05:51,743 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:51,743 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 7
+2024-05-28 14:05:51,743 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:51,744 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 7
+2024-05-28 14:05:51,768 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-summary.json
+2024-05-28 14:05:51,769 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/config.yaml
+2024-05-28 14:05:51,770 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:52,662 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: poll_exit
+2024-05-28 14:05:52,969 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 8
+2024-05-28 14:05:52,970 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: poll_exit
+2024-05-28 14:05:52,970 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:52,971 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 8
+2024-05-28 14:05:52,971 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:52,972 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 8
+2024-05-28 14:05:52,972 INFO    SenderThread:2208158 [job_builder.py:build():296] Attempting to build job artifact
+2024-05-28 14:05:52,974 INFO    SenderThread:2208158 [job_builder.py:_get_source_type():437] no source found
+2024-05-28 14:05:52,974 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 9
+2024-05-28 14:05:52,975 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:52,976 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 9
+2024-05-28 14:05:52,976 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:52,976 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 9
+2024-05-28 14:05:52,976 INFO    SenderThread:2208158 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-05-28 14:05:53,663 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: poll_exit
+2024-05-28 14:05:53,770 INFO    Thread-13 :2208158 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:53,771 INFO    SenderThread:2208158 [dir_watcher.py:finish():388] scan: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files
+2024-05-28 14:05:53,771 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/config.yaml config.yaml
+2024-05-28 14:05:53,772 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-summary.json wandb-summary.json
+2024-05-28 14:05:53,776 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/conda-environment.yaml conda-environment.yaml
+2024-05-28 14:05:53,778 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log output.log
+2024-05-28 14:05:53,779 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-metadata.json wandb-metadata.json
+2024-05-28 14:05:53,779 INFO    SenderThread:2208158 [dir_watcher.py:finish():402] scan save: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/requirements.txt requirements.txt
+2024-05-28 14:05:53,787 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 10
+2024-05-28 14:05:53,787 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: poll_exit
+2024-05-28 14:05:53,787 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:53,792 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 10
+2024-05-28 14:05:53,793 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:53,793 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 10
+2024-05-28 14:05:53,793 INFO    SenderThread:2208158 [file_pusher.py:finish():175] shutting down file pusher
+2024-05-28 14:05:54,175 INFO    wandb-upload_1:2208158 [upload_job.py:push():131] Uploaded file /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/wandb-summary.json
+2024-05-28 14:05:54,193 INFO    wandb-upload_0:2208158 [upload_job.py:push():131] Uploaded file /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/config.yaml
+2024-05-28 14:05:54,225 INFO    wandb-upload_3:2208158 [upload_job.py:push():131] Uploaded file /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/output.log
+2024-05-28 14:05:54,241 INFO    wandb-upload_4:2208158 [upload_job.py:push():131] Uploaded file /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/requirements.txt
+2024-05-28 14:05:54,245 INFO    wandb-upload_2:2208158 [upload_job.py:push():131] Uploaded file /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/files/conda-environment.yaml
+2024-05-28 14:05:54,445 INFO    Thread-12 :2208158 [sender.py:transition_state():617] send defer: 11
+2024-05-28 14:05:54,446 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:54,446 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 11
+2024-05-28 14:05:54,447 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:54,448 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 11
+2024-05-28 14:05:54,448 INFO    SenderThread:2208158 [file_pusher.py:join():181] waiting for file pusher
+2024-05-28 14:05:54,448 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 12
+2024-05-28 14:05:54,449 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:54,449 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 12
+2024-05-28 14:05:54,450 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:54,450 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 12
+2024-05-28 14:05:54,450 INFO    SenderThread:2208158 [file_stream.py:finish():595] file stream finish called
+2024-05-28 14:05:54,645 INFO    SenderThread:2208158 [file_stream.py:finish():599] file stream finish is done
+2024-05-28 14:05:54,645 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 13
+2024-05-28 14:05:54,645 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:54,646 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 13
+2024-05-28 14:05:54,647 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:54,647 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 13
+2024-05-28 14:05:54,647 INFO    SenderThread:2208158 [sender.py:transition_state():617] send defer: 14
+2024-05-28 14:05:54,648 DEBUG   SenderThread:2208158 [sender.py:send():382] send: final
+2024-05-28 14:05:54,648 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: defer
+2024-05-28 14:05:54,648 DEBUG   SenderThread:2208158 [sender.py:send():382] send: footer
+2024-05-28 14:05:54,649 INFO    HandlerThread:2208158 [handler.py:handle_request_defer():172] handle defer: 14
+2024-05-28 14:05:54,650 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: defer
+2024-05-28 14:05:54,650 INFO    SenderThread:2208158 [sender.py:send_request_defer():613] handle sender defer: 14
+2024-05-28 14:05:54,651 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: poll_exit
+2024-05-28 14:05:54,651 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: poll_exit
+2024-05-28 14:05:54,651 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: poll_exit
+2024-05-28 14:05:54,652 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: server_info
+2024-05-28 14:05:54,652 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: poll_exit
+2024-05-28 14:05:54,652 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: get_summary
+2024-05-28 14:05:54,653 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: server_info
+2024-05-28 14:05:54,654 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: sampled_history
+2024-05-28 14:05:54,656 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: internal_messages
+2024-05-28 14:05:54,657 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: job_info
+2024-05-28 14:05:54,781 DEBUG   SenderThread:2208158 [sender.py:send_request():409] send_request: job_info
+2024-05-28 14:05:54,782 INFO    MainThread:2208158 [wandb_run.py:_footer_history_summary_info():3857] rendering history
+2024-05-28 14:05:54,783 INFO    MainThread:2208158 [wandb_run.py:_footer_history_summary_info():3889] rendering summary
+2024-05-28 14:05:54,784 INFO    MainThread:2208158 [wandb_run.py:_footer_sync_info():3816] logging synced files
+2024-05-28 14:05:54,785 DEBUG   HandlerThread:2208158 [handler.py:handle_request():146] handle_request: shutdown
+2024-05-28 14:05:54,785 INFO    HandlerThread:2208158 [handler.py:finish():869] shutting down handler
+2024-05-28 14:05:55,657 INFO    WriterThread:2208158 [datastore.py:close():296] close: /home/storage/loewanc6/Nequip/Nequip_phonon/nequip/wandb/run-20240528_140519-9445dt7o/run-9445dt7o.wandb
+2024-05-28 14:05:55,782 INFO    SenderThread:2208158 [sender.py:finish():1572] shutting down sender
+2024-05-28 14:05:55,782 INFO    SenderThread:2208158 [file_pusher.py:finish():175] shutting down file pusher
+2024-05-28 14:05:55,782 INFO    SenderThread:2208158 [file_pusher.py:join():181] waiting for file pusher

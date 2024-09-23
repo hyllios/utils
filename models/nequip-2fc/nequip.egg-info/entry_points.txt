@@ -1,0 +1,5 @@
+[console_scripts]
+nequip-benchmark = nequip.scripts.benchmark:main
+nequip-deploy = nequip.scripts.deploy:main
+nequip-evaluate = nequip.scripts.evaluate:main
+nequip-train = nequip.scripts.train:main

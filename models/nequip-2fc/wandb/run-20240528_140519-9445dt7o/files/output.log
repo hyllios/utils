@@ -1,0 +1,68 @@
+Torch device: cuda
+Downloading http://quantum-machine.org/gdml/data/npz/toluene_ccsd_t.zip
+Processing dataset...
+Loaded data: Batch(batch=[15000], cell=[1000, 3, 3], edge_cell_shift=[154352, 3], edge_index=[2, 154352], forces=[15000, 3], pbc=[1000, 3], pos=[15000, 3], ptr=[1001], total_energy=[1000, 1])
+    processed data size: ~4.63 MB
+Cached processed data to disk
+Done!
+Successfully loaded the data set of type NpzDataset(1000)...
+Replace string dataset_forces_rms to 30.621034622192383
+Replace string dataset_per_atom_total_energy_mean to -11319.556640625
+Atomic outputs are scaled by: [H, C: 30.621035], shifted by [H, C: -11319.556641].
+Replace string dataset_forces_rms to 30.621034622192383
+Initially outputs are globally scaled by: 30.621034622192383, total_energy are globally shifted by None.
+Successfully built the network...
+Number of weights: 363096
+Number of trainable weights: 363096
+! Starting training ...
+validation
+# Epoch batch         loss       loss_f       loss_e        f_mae       f_rmse      H_f_mae      C_f_mae  psavg_f_mae     H_f_rmse     C_f_rmse psavg_f_rmse        e_mae      e/N_mae
+      0     5        0.967        0.952       0.0147         22.2         29.9         15.5         29.8         22.6           21         37.6         29.3         55.3         3.69
+  Initialization     #    Epoch      wal       LR       loss_f       loss_e         loss        f_mae       f_rmse      H_f_mae      C_f_mae  psavg_f_mae     H_f_rmse     C_f_rmse psavg_f_rmse        e_mae      e/N_mae
+! Initial Validation          0    6.853    0.005        0.908       0.0143        0.922         21.5         29.2         15.2         28.7         21.9         20.1         36.9         28.5         54.6         3.64
+Wall time: 6.8545254450291395
+! Best model        0    0.922
+training
+# Epoch batch         loss       loss_f       loss_e        f_mae       f_rmse      H_f_mae      C_f_mae  psavg_f_mae     H_f_rmse     C_f_rmse psavg_f_rmse        e_mae      e/N_mae
+      1    10        0.431        0.423      0.00837         15.2         19.9           10         21.2         15.6         12.7         25.8         19.2         41.9          2.8
+      1    20        0.251        0.251     3.69e-05         10.9         15.3         7.86         14.4         11.1         9.69         19.9         14.8         1.94         0.13
+validation
+# Epoch batch         loss       loss_f       loss_e        f_mae       f_rmse      H_f_mae      C_f_mae  psavg_f_mae     H_f_rmse     C_f_rmse psavg_f_rmse        e_mae      e/N_mae
+      1     5        0.281        0.278      0.00245         11.4         16.1         6.81         16.7         11.8         8.55         21.8         15.2         22.1         1.48
+  Train      #    Epoch      wal       LR       loss_f       loss_e         loss        f_mae       f_rmse      H_f_mae      C_f_mae  psavg_f_mae     H_f_rmse     C_f_rmse psavg_f_rmse        e_mae      e/N_mae
+! Train               1   13.815    0.005        0.596       0.0131        0.609         16.5         23.6         10.5         23.4           17         14.7         30.8         22.8         48.1          3.2
+! Validation          1   13.815    0.005         0.24      0.00206        0.242         10.6           15         6.46         15.4         10.9         8.17         20.1         14.2         20.4         1.36
+Wall time: 13.817382007837296
+! Best model        1    0.242
+Traceback (most recent call last):
+  File "/home/users/loewanc6/miniconda3/envs/nequip/bin/nequip-train", line 33, in <module>
+    sys.exit(load_entry_point('nequip', 'console_scripts', 'nequip-train')())
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/scripts/train.py", line 78, in main
+    trainer.train()
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 778, in train
+    self.epoch_step()
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 916, in epoch_step
+    self.batch_step(
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 830, in batch_step
+    loss.backward()
+  File "/home/users/loewanc6/miniconda3/envs/nequip/lib/python3.9/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/users/loewanc6/miniconda3/envs/nequip/lib/python3.9/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/users/loewanc6/miniconda3/envs/nequip/bin/nequip-train", line 33, in <module>
+    sys.exit(load_entry_point('nequip', 'console_scripts', 'nequip-train')())
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/scripts/train.py", line 78, in main
+    trainer.train()
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 778, in train
+    self.epoch_step()
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 916, in epoch_step
+    self.batch_step(
+  File "/home/storage/loewanc6/Nequip/Nequip_phonon/nequip/nequip/train/trainer.py", line 830, in batch_step
+    loss.backward()
+  File "/home/users/loewanc6/miniconda3/envs/nequip/lib/python3.9/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/users/loewanc6/miniconda3/envs/nequip/lib/python3.9/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
