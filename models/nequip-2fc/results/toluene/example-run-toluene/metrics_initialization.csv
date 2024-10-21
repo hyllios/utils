@@ -1,2 +1,0 @@
-epoch, wall, LR,validation_loss_f,validation_loss_e,validation_loss,validation_f_mae,validation_f_rmse,validation_H_f_mae,validation_C_f_mae,validation_psavg_f_mae,validation_H_f_rmse,validation_C_f_rmse,validation_psavg_f_rmse,validation_e_mae,validation_e/N_mae
-         0,    6.853,    0.005,          0.90791,         0.014303,          0.92221,         21.5,         29.2,         15.2,         28.7,         21.9,         20.1,         36.9,         28.5,         54.6,         3.64
