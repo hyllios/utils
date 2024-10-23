@@ -1,1 +1,1 @@
-A corresponding zenodo repository with models too large for github and the data will soon be available under the doi 10.5281/zenodo.12582650
+A corresponding zenodo repository with models too large for github and the data is available at https://zenodo.org/records/12582650
