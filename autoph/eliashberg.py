@@ -3,7 +3,7 @@
 import os, sys
 from autoph.pw_utils import read_a2Fdos
 
-ELIASHBERGX = "/nfs/data-019/marques/software/bin/eliashberg.x"
+ELIASHBERGX = "/home/users/marqumln/nas-data-001/software/bin/eliashberg.x"
 
 def run_eliashberg(mdir, mus=0.1, factor_w=1.0, factor_a=1.0):
 

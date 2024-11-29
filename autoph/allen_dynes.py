@@ -62,11 +62,11 @@ class AllenDynes(object):
 
     a2f = self._a2f
     w = self._w
-    la = 2*simpson(a2f/w, w)
-    sim = simpson(a2f/w*np.log(w), w)
+    la = 2*simpson(a2f/w, x=w)
+    sim = simpson(a2f/w*np.log(w), x=w)
     self._wlog = np.exp(2/la*sim)/K_BOLTZMANN_RY
 
-    sim = max(0.0, simpson(2*a2f*w, w))
+    sim = max(0.0, simpson(2*a2f*w, x=w))
     self._w2 = np.sqrt(sim/la)/K_BOLTZMANN_RY
     self._la = la
     return self._wlog, self._w2, self._la

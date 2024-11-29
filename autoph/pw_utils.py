@@ -3,6 +3,53 @@ from pymatgen.core import Element
 import sys, re
 import numpy as np
 
+class PostProcessInput(object):
+    """
+    
+    """
+    def __init__(self, params_dict, kpts=None):
+        self.sections = params_dict
+        self.kpts = kpts
+    
+    def write_file(self, filename):
+        with open(filename, "w") as f:
+            f.write(str(self))
+
+    def __str__(self):
+        out = []
+        site_descriptions = {}
+
+        def to_str(v):
+            if isinstance(v, str):
+                return f"'{v}'"
+            if isinstance(v, float):
+                return f"{str(v).replace('e', 'd')}"
+            if isinstance(v, bool):
+                if v:
+                    return ".TRUE."
+                return ".FALSE."
+            return v
+
+        for k1, v1 in self.sections.items():
+            out.append(f"&{k1.upper()}")
+            sub = []
+            for k2, v2 in sorted(v1.items()):
+                if isinstance(v2, list):
+                    n = 1
+                    for l in v2[: len(site_descriptions)]:
+                        sub.append(f"  {k2}({n}) = {to_str(v2[n - 1])}")
+                        n += 1
+                else:
+                    sub.append(f"  {k2} = {to_str(v2)}")
+            sub.append("/")
+            out.append(",\n".join(sub))
+
+        if self.kpts is not None:
+            out.append(f"{len(self.kpts)}")
+            for i,j,k in self.kpts:
+                out.append(f"{i:12.10f} {j:12.10f} {k:12.10f}")
+        return "\n".join(out)+"\n\n"
+
 class MyPWInput(PWInput):
     """
     Initializes a PWSCF input file.
@@ -229,16 +276,23 @@ def read_dyn(mdir, prefix="qe"):
     dyn["dyn"].append(dyn_file)
   return dyn
 
-def check_imfreq(mdir="./", img_threshold=-25, prefix="qe"):
+def check_imfreq(mdir="./", img_threshold=-25, prefix="qe", _2D=False):
     dyn = read_dyn(mdir, prefix=prefix)
     nimag = 0
     for i in dyn["dyn"]:
-        # is it Gamma
         nimag_qpt = sum([1 for f in i["freqs"] if f < 0.0])
+
+        # is it Gamma
         if i["qpt"][0] == 0. and i["qpt"][1] == 0. and i["qpt"][2] == 0.:
             nok = min(3, sum([1 for f in i["freqs"] if f < 0.0 and f > img_threshold]))
             nimag_qpt = nimag_qpt - nok
+
+        # we have to give some slack to the flexural mode
+        elif _2D and i["freqs"][0] > img_threshold/2:
+            nimag_qpt = max(0, nimag_qpt - 1)
+
         nimag += nimag_qpt
+
     return nimag, dyn
 
 def read_a2Fdos(mdir, fname="a2F.dos10"):
@@ -260,3 +314,158 @@ def read_a2Fdos(mdir, fname="a2F.dos10"):
         a2Fdos["modes"].append([float(i) for i in fields[2:]])
 
     return a2Fdos
+
+def ibrav_to_cell(system):
+    """
+    Convert a value of ibrav to a cell. Any unspecified lattice dimension
+    is set to 0.0, but will not necessarily raise an error. Also return the
+    lattice parameter.
+
+    Parameters
+    ----------
+    system : dict
+        The &SYSTEM section of the input file, containing the 'ibrav' setting,
+        and either celldm(1)..(6) or a, b, c, cosAB, cosAC, cosBC.
+
+    Returns
+    -------
+    alat, cell : float, np.array
+        Cell parameter in Angstrom, and
+        The 3x3 array representation of the cell.
+
+    Raises
+    ------
+    KeyError
+        Raise an error if any required keys are missing.
+    NotImplementedError
+        Only a limited number of ibrav settings can be parsed. An error
+        is raised if the ibrav interpretation is not implemented.
+
+    MALM: added ibrav=-13
+    """
+    from ase.units import create_units
+    # Quantum ESPRESSO uses CODATA 2006 internally
+    units = create_units('2006')
+
+    if 'celldm(1)' in system and 'a' in system:
+        raise KeyError('do not specify both celldm and a,b,c!')
+    elif 'celldm(1)' in system:
+        # celldm(x) in bohr
+        alat = system['celldm(1)'] * units['Bohr']
+        b_over_a = system.get('celldm(2)', 0.0)
+        c_over_a = system.get('celldm(3)', 0.0)
+        cosab = system.get('celldm(4)', 0.0)
+        cosac = system.get('celldm(5)', 0.0)
+        cosbc = 0.0
+        if system['ibrav'] == 14:
+            cosbc = system.get('celldm(4)', 0.0)
+            cosac = system.get('celldm(5)', 0.0)
+            cosab = system.get('celldm(6)', 0.0)
+    elif 'a' in system:
+        # a, b, c, cosAB, cosAC, cosBC in Angstrom
+        alat = system['a']
+        b_over_a = system.get('b', 0.0) / alat
+        c_over_a = system.get('c', 0.0) / alat
+        cosab = system.get('cosab', 0.0)
+        cosac = system.get('cosac', 0.0)
+        cosbc = system.get('cosbc', 0.0)
+    else:
+        raise KeyError("Missing celldm(1) or a cell parameter.")
+
+    if system['ibrav'] == 1:
+        cell = np.identity(3) * alat
+    elif system['ibrav'] == 2:
+        cell = np.array([[-1.0, 0.0, 1.0],
+                         [0.0, 1.0, 1.0],
+                         [-1.0, 1.0, 0.0]]) * (alat / 2)
+    elif system['ibrav'] == 3:
+        cell = np.array([[1.0, 1.0, 1.0],
+                         [-1.0, 1.0, 1.0],
+                         [-1.0, -1.0, 1.0]]) * (alat / 2)
+    elif system['ibrav'] == -3:
+        cell = np.array([[-1.0, 1.0, 1.0],
+                         [1.0, -1.0, 1.0],
+                         [1.0, 1.0, -1.0]]) * (alat / 2)
+    elif system['ibrav'] == 4:
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [-0.5, 0.5 * 3**0.5, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == 5:
+        tx = ((1.0 - cosab) / 2.0)**0.5
+        ty = ((1.0 - cosab) / 6.0)**0.5
+        tz = ((1 + 2 * cosab) / 3.0)**0.5
+        cell = np.array([[tx, -ty, tz],
+                         [0, 2 * ty, tz],
+                         [-tx, -ty, tz]]) * alat
+    elif system['ibrav'] == -5:
+        ty = ((1.0 - cosab) / 6.0)**0.5
+        tz = ((1 + 2 * cosab) / 3.0)**0.5
+        a_prime = alat / 3**0.5
+        u = tz - 2 * 2**0.5 * ty
+        v = tz + 2**0.5 * ty
+        cell = np.array([[u, v, v],
+                         [v, u, v],
+                         [v, v, u]]) * a_prime
+    elif system['ibrav'] == 6:
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [0.0, 1.0, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == 7:
+        cell = np.array([[1.0, -1.0, c_over_a],
+                         [1.0, 1.0, c_over_a],
+                         [-1.0, -1.0, c_over_a]]) * (alat / 2)
+    elif system['ibrav'] == 8:
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [0.0, b_over_a, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == 9:
+        cell = np.array([[1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [-1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == -9:
+        cell = np.array([[1.0 / 2.0, -b_over_a / 2.0, 0.0],
+                         [1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == 10:
+        cell = np.array([[1.0 / 2.0, 0.0, c_over_a / 2.0],
+                         [1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [0.0, b_over_a / 2.0, c_over_a / 2.0]]) * alat
+    elif system['ibrav'] == 11:
+        cell = np.array([[1.0 / 2.0, b_over_a / 2.0, c_over_a / 2.0],
+                         [-1.0 / 2.0, b_over_a / 2.0, c_over_a / 2.0],
+                         [-1.0 / 2.0, -b_over_a / 2.0, c_over_a / 2.0]]) * alat
+    elif system['ibrav'] == 12:
+        sinab = (1.0 - cosab**2)**0.5
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [b_over_a * cosab, b_over_a * sinab, 0.0],
+                         [0.0, 0.0, c_over_a]]) * alat
+    elif system['ibrav'] == -12:
+        sinac = (1.0 - cosac**2)**0.5
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [0.0, b_over_a, 0.0],
+                         [c_over_a * cosac, 0.0, c_over_a * sinac]]) * alat
+    elif system['ibrav'] == 13:
+        sinab = (1.0 - cosab**2)**0.5
+        cell = np.array([[1.0 / 2.0, 0.0, -c_over_a / 2.0],
+                         [b_over_a * cosab, b_over_a * sinab, 0.0],
+                         [1.0 / 2.0, 0.0, c_over_a / 2.0]]) * alat
+    elif system['ibrav'] == -13:
+        sinac = (1.0 - cosac**2)**0.5
+        cell = np.array([[ 1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [-1.0 / 2.0, b_over_a / 2.0, 0.0],
+                         [c_over_a * cosac, 0.0, c_over_a * sinac]]) * alat
+    elif system['ibrav'] == 14:
+        sinab = (1.0 - cosab**2)**0.5
+        v3 = [c_over_a * cosac,
+              c_over_a * (cosbc - cosac * cosab) / sinab,
+              c_over_a * ((1 + 2 * cosbc * cosac * cosab
+                           - cosbc**2 - cosac**2 - cosab**2)**0.5) / sinab]
+        cell = np.array([[1.0, 0.0, 0.0],
+                         [b_over_a * cosab, b_over_a * sinab, 0.0],
+                         v3]) * alat
+    else:
+        raise NotImplementedError('ibrav = {0} is not implemented'
+                                  ''.format(system['ibrav']))
+
+    return alat, cell
+
