@@ -1,0 +1,3 @@
+This folder contains the ALIGNN models used in arxiv:abdefg, trained with the largest training set available (3.97M).
+
+To be used with the the ALIGNN architecture (https://github.com/usnistgov/alignn).

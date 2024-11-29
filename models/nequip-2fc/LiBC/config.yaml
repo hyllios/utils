@@ -1,0 +1,217 @@
+BesselBasis_trainable: true
+PolynomialCutoff_p: 6
+_jit_bailout_depth: 2
+_jit_fusion_strategy:
+- !!python/tuple
+  - DYNAMIC
+  - 3
+allow_tf32: false
+append: false
+ase_args:
+  format: extxyz
+avg_num_neighbors: 37.123573303222656
+batch_size: 1
+chemical_embedding_irreps_out: 32x0e
+chemical_symbols:
+- Li
+- B
+- C
+conv_to_output_hidden_irreps_out: 16x0e
+dataloader_num_workers: 0
+dataset: ase
+dataset_extra_fixed_fields:
+  r_max: 4
+dataset_file_name: data_train_5.extxyz
+dataset_seed: 42
+dataset_statistics_stride: 1
+default_dtype: float32
+device: cuda
+early_stopping: null
+early_stopping_cumulative_delta: false
+early_stopping_delta:
+  validation_loss: 0.005
+early_stopping_kwargs: null
+early_stopping_lower_bounds:
+  LR: 1.0e-05
+early_stopping_patiences:
+  validation_loss: 125
+ema_decay: 0.99
+ema_use_num_updates: true
+end_of_batch_callbacks: []
+end_of_epoch_callbacks: []
+end_of_train_callbacks: []
+equivariance_test: false
+exclude_keys: []
+feature_irreps_hidden: 32x0e+32x1e+32x2e
+final_callbacks: []
+fixed_fields: null
+grad_anomaly_mode: false
+include_keys:
+- fc
+- s2u
+init_callbacks: []
+invariant_layers: 3
+invariant_neurons: 64
+irreps_edge_sh: 1x0e+1x1e+1x2e
+key_mapping:
+  fc: force_constant
+  s2u: s2u
+l_max: 2
+learning_rate: 0.005
+log_batch_freq: 10
+log_epoch_freq: 1
+loss_coeffs:
+  force_constant:
+  - 1
+  - L1Loss
+  total_energy:
+  - 1
+  - PerAtomMSELoss
+lr_scheduler_factor: 0.5
+lr_scheduler_kwargs:
+  cooldown: 0
+  eps: 1.0e-08
+  factor: 0.5
+  min_lr: 0
+  mode: min
+  patience: 200
+  threshold: 0.0001
+  threshold_mode: rel
+  verbose: false
+lr_scheduler_name: ReduceLROnPlateau
+lr_scheduler_patience: 200
+max_epochs: 100000
+max_gradient_norm: .inf
+metrics_components:
+- - forces
+  - mae
+- - total_energy
+  - mae
+  - PerAtom: true
+- - force_constant
+  - mae
+metrics_key: validation_loss
+model_builders:
+- SimpleIrrepsConfig
+- EnergyModel
+- PerSpeciesRescale
+- ForceConstantOutput
+model_debug_mode: false
+n_train: 168
+n_val: 43
+nonlinearity_gates:
+  e: silu
+  o: tanh
+nonlinearity_scalars:
+  e: silu
+  o: tanh
+nonlinearity_type: gate
+num_basis: 8
+num_features: 32
+num_layers: 3
+num_types: 3
+optimizer_amsgrad: true
+optimizer_kwargs:
+  amsgrad: true
+  betas: !!python/tuple
+  - 0.9
+  - 0.999
+  capturable: false
+  eps: 1.0e-08
+  foreach: null
+  maximize: false
+  weight_decay: 0
+optimizer_name: Adam
+parity: false
+per_species_rescale_scales_trainable: false
+per_species_rescale_shifts: dataset_per_atom_total_energy_mean
+per_species_rescale_shifts_trainable: false
+r_max: 4
+report_init_validation: true
+root: run_smallerLiBC/
+run_id: uh3bz87a
+run_name: smallerLiBC_5_6
+save_checkpoint_freq: -1
+save_ema_checkpoint_freq: -1
+seed: 42
+shuffle: true
+train_idcs: !!python/object/apply:torch._utils._rebuild_tensor_v2
+- !!python/object/apply:torch.storage._load_from_bytes
+  - !!binary |
+    gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+    AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+    aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApMb25nU3RvcmFn
+    ZQpxAVgOAAAAOTQ2ODkyMDMyMzg3ODRxAlgDAAAAY3B1cQNLqE50cQRRLoACXXEAWA4AAAA5NDY4
+    OTIwMzIzODc4NHEBYS6oAAAAAAAAAE4AAAAAAAAAjAAAAAAAAAB4AAAAAAAAAH8AAAAAAAAAGgAA
+    AAAAAAAiAAAAAAAAAJQAAAAAAAAAbgAAAAAAAAAAAAAAAAAAAHoAAAAAAAAAggAAAAAAAAAGAAAA
+    AAAAAIYAAAAAAAAAcAAAAAAAAABHAAAAAAAAAJoAAAAAAAAAUwAAAAAAAAAfAAAAAAAAAIcAAAAA
+    AAAAFAAAAAAAAAAtAAAAAAAAADgAAAAAAAAAbwAAAAAAAAB8AAAAAAAAAIMAAAAAAAAARQAAAAAA
+    AABpAAAAAAAAABIAAAAAAAAAGwAAAAAAAAAmAAAAAAAAAAIAAAAAAAAAPAAAAAAAAABDAAAAAAAA
+    AJ0AAAAAAAAAawAAAAAAAAA/AAAAAAAAABgAAAAAAAAAHQAAAAAAAABkAAAAAAAAAHIAAAAAAAAA
+    YgAAAAAAAAAEAAAAAAAAAD0AAAAAAAAAPgAAAAAAAABbAAAAAAAAAE0AAAAAAAAAbQAAAAAAAACQ
+    AAAAAAAAAI0AAAAAAAAARAAAAAAAAAANAAAAAAAAADAAAAAAAAAACgAAAAAAAAAgAAAAAAAAACUA
+    AAAAAAAAVAAAAAAAAACnAAAAAAAAADEAAAAAAAAAagAAAAAAAAB+AAAAAAAAAAwAAAAAAAAAlgAA
+    AAAAAACcAAAAAAAAAGcAAAAAAAAAXgAAAAAAAACFAAAAAAAAAJkAAAAAAAAAYAAAAAAAAABPAAAA
+    AAAAAAsAAAAAAAAALgAAAAAAAAAsAAAAAAAAADIAAAAAAAAAFgAAAAAAAAAJAAAAAAAAAKQAAAAA
+    AAAAFQAAAAAAAACVAAAAAAAAAFYAAAAAAAAAlwAAAAAAAAB2AAAAAAAAAHkAAAAAAAAAKwAAAAAA
+    AAA6AAAAAAAAADQAAAAAAAAAVQAAAAAAAACRAAAAAAAAACkAAAAAAAAAewAAAAAAAABcAAAAAAAA
+    AA4AAAAAAAAApQAAAAAAAABaAAAAAAAAAIQAAAAAAAAARgAAAAAAAAAPAAAAAAAAAFEAAAAAAAAA
+    OwAAAAAAAABAAAAAAAAAAAUAAAAAAAAAngAAAAAAAAB0AAAAAAAAAEIAAAAAAAAAGQAAAAAAAACJ
+    AAAAAAAAAEkAAAAAAAAAKAAAAAAAAABmAAAAAAAAAEEAAAAAAAAAnwAAAAAAAAAhAAAAAAAAAFgA
+    AAAAAAAATAAAAAAAAACLAAAAAAAAAJIAAAAAAAAANwAAAAAAAAAvAAAAAAAAADkAAAAAAAAAgQAA
+    AAAAAAAqAAAAAAAAAEgAAAAAAAAANgAAAAAAAAAkAAAAAAAAABEAAAAAAAAASwAAAAAAAACbAAAA
+    AAAAABAAAAAAAAAAdwAAAAAAAACTAAAAAAAAAI8AAAAAAAAAMwAAAAAAAABSAAAAAAAAABcAAAAA
+    AAAAowAAAAAAAACYAAAAAAAAAIgAAAAAAAAAHAAAAAAAAABQAAAAAAAAAIoAAAAAAAAAJwAAAAAA
+    AAAeAAAAAAAAAAMAAAAAAAAACAAAAAAAAACiAAAAAAAAAHUAAAAAAAAAjgAAAAAAAACgAAAAAAAA
+    ABMAAAAAAAAASgAAAAAAAABlAAAAAAAAAHEAAAAAAAAAWQAAAAAAAABXAAAAAAAAAKYAAAAAAAAA
+    aAAAAAAAAAB9AAAAAAAAAF8AAAAAAAAAcwAAAAAAAAA1AAAAAAAAAGMAAAAAAAAAYQAAAAAAAABd
+    AAAAAAAAAGwAAAAAAAAAgAAAAAAAAAAjAAAAAAAAAAEAAAAAAAAAoQAAAAAAAAAHAAAAAAAAAA==
+- 0
+- !!python/tuple
+  - 168
+- !!python/tuple
+  - 1
+- false
+- !!python/object/apply:collections.OrderedDict
+  - []
+train_on_keys:
+- force_constant
+- total_energy
+train_val_split: random
+type_names:
+- Li
+- B
+- C
+use_ema: true
+use_sc: true
+val_idcs: !!python/object/apply:torch._utils._rebuild_tensor_v2
+- !!python/object/apply:torch.storage._load_from_bytes
+  - !!binary |
+    gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+    AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+    aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApMb25nU3RvcmFn
+    ZQpxAVgOAAAAOTQ2ODkyMDMyMzU3NzZxAlgDAAAAY3B1cQNLK050cQRRLoACXXEAWA4AAAA5NDY4
+    OTIwMzIzNTc3NnEBYS4rAAAAAAAAAAMAAAAAAAAAEwAAAAAAAAAVAAAAAAAAABIAAAAAAAAAKgAA
+    AAAAAAApAAAAAAAAABoAAAAAAAAACgAAAAAAAAAgAAAAAAAAACUAAAAAAAAAHwAAAAAAAAALAAAA
+    AAAAACYAAAAAAAAAAgAAAAAAAAAFAAAAAAAAABQAAAAAAAAAHQAAAAAAAAARAAAAAAAAAAEAAAAA
+    AAAAJAAAAAAAAAANAAAAAAAAACcAAAAAAAAABAAAAAAAAAAZAAAAAAAAABwAAAAAAAAACQAAAAAA
+    AAAPAAAAAAAAAA4AAAAAAAAABwAAAAAAAAAIAAAAAAAAACgAAAAAAAAAIwAAAAAAAAAYAAAAAAAA
+    AAYAAAAAAAAAFgAAAAAAAAAbAAAAAAAAACIAAAAAAAAAHgAAAAAAAAAXAAAAAAAAAAAAAAAAAAAA
+    EAAAAAAAAAAhAAAAAAAAAAwAAAAAAAAA
+- 0
+- !!python/tuple
+  - 43
+- !!python/tuple
+  - 1
+- false
+- !!python/object/apply:collections.OrderedDict
+  - []
+validation_batch_size: 1
+validation_dataset: ase
+validation_dataset_extra_fixed_fields:
+  r_max: 4
+validation_dataset_file_name: data_eval_5.extxyz
+var_num_neighbors: 6.039219379425049
+verbose: info
+wandb: true
+wandb_project: noctua_Nequip_phonon
