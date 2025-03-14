@@ -1,0 +1,70 @@
+{
+	"m3gnet": {
+		"arch": "m3gnet",
+		"path": "$HOME/nas-data-001/software/progs/m3gnet/EFS2021/"
+	},
+	"m3gnet-2d": {
+		"arch": "m3gnet",
+		"path": "$HOME/nas-data-001/software/progs/m3gnet/2d/00099-0.159231-0.061133-0.089411-0.086880/"
+	},
+	"mace-mp-0": {
+		"arch": "mace",
+		"path": "$HOME/nas-data-001/software/progs/mace/model/2023-12-03-mace-128-L1_epoch-199.model"
+	},
+	"mace-mpa-0": {
+		"arch": "mace",
+		"path": "$HOME/nas-data-001/software/progs/mace/model/mace-mpa-0-medium.model"
+	},
+	"mace-omat-0": {
+                "arch": "mace",
+                "path": "$HOME/nas-data-001/software/progs/mace/model/mace-omat-0-medium.model"
+	},
+	"mace-2d": {
+		"arch": "mace",
+		"path": "$HOME/nas-data-001/software/progs/mace/2d/MACE_0.003_128_swa_5_swa_cpu.model"
+	},
+	"orb": {
+		"arch": "orbital",
+		"path": "$HOME/nas-data-001/software/progs/orb/orb-v2-20241011.ckpt"
+	},
+	"eqv2-86m": {
+		"arch": "fairchem",
+		"path": "$HOME/nas-data-001/software/progs/ocp/eqV2_86M_omat_mp_salex.pt"
+	},
+	"sevenn-0": {
+		"arch": "sevenn",
+		"path": "7net-0_11July2024"
+	},
+	"sevenn-l3i5": {
+		"arch": "sevenn",
+		"path": "7net-l3i5"
+	},
+	"chgnet": {
+		"arch": "chgnet",
+		"path": ""
+	},
+	"mattersim-v1": {
+		"arch": "mattersim",
+		"path": "MatterSim-v1.0.0-5M.pth"
+	},
+	"grace-2l-r6": {
+		"arch": "grace",
+		"path": "$HOME/nas-data-001/software/progs/grace/MP_GRACE_2L_r6_11Nov2024"
+	},
+	"grace-alex": {
+		"arch": "grace",
+		"path": "$HOME/nas-data-001/software/progs/grace/GRACE_2L_r6_sAlex_MP_13Jan25"
+	},
+	"grace-2l-oam": {
+                "arch": "grace",
+                "path": "$HOME/nas-data-001/software/progs/grace/GRACE-2L-OAM_28Jan25"
+        },
+	"grace-2l-omat": {
+                "arch": "grace",
+                "path": "$HOME/nas-data-001/software/progs/grace/GRACE-2L-OMAT-3Feb25"
+        },
+	"dpa3-v1-openlam": {
+		"arch": "deepmd",
+		"path": "$HOME/nas-data-001/software/progs/deepmd/2025-01-10-dpa3-openlam.pth"
+	}
+}
