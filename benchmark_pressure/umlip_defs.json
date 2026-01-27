@@ -1,0 +1,42 @@
+{
+  "m3gnet": {
+    "arch": "m3gnet",
+    "path": "$HOME/nas-data-001/software/progs/m3gnet/EFS2021/"
+  },
+  "mace-mpa-0": {
+    "arch": "mace",
+    "path": "$HOME/nas-data-001/software/progs/mace/model/mace-mpa-0-medium.model"
+  },
+  "orb-v3-conservative-inf": {
+    "arch": "orbital",
+    "path": "$HOME/nas-data-001/software/progs/orb/orb-v3-conservative-inf-mpa-20250404.ckpt"
+  },
+  "esen-oam":{
+    "arch": "fairchem",
+    "path": "$HOME/nas-data-001/software/progs/fairchem/esen_30m_oam.pt"
+  },
+  "esen-ap-ft-0":{
+    "arch": "fairchem",
+    "path": "$HOME/nas-data-001/software/progs/fairchem/pressure/best_checkpoint_2025-05-11-12-05-52_05_12_14_45.pt"
+  },
+  "sevenn-mf-ompa": {
+    "arch": "sevenn",
+    "path": "$HOME/nas-data-001/software/progs/sevenn/checkpoint_sevennet_mf_ompa.pth"
+  },
+  "mattersim-v1": {
+    "arch": "mattersim",
+    "path": "MatterSim-v1.0.0-5M.pth"
+  },
+  "mattersim-ap-ft-0": {
+    "arch": "mattersim",
+    "path": "$HOME/nas-data-001/software/progs/mattersim/pressure/b6fren8e.pth"
+  },
+  "grace-2l-oam": {
+    "arch": "grace",
+    "path": "$HOME/nas-data-001/software/progs/grace/GRACE-2L-OAM_28Jan25"
+  },
+  "dpa3-v1-openlam": {
+    "arch": "deepmd",
+    "path": "$HOME/nas-data-001/software/progs/deepmd/2025-01-10-dpa3-openlam.pth"
+  }
+}
