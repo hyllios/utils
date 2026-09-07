@@ -1,0 +1,34 @@
+# PRL 125, 057001 (2020) Fig. 2, digitised from the published PDF
+# vector data (get_drawings): open circles = Eliashberg, green dots
+# = SCDFT-proposed. Einstein mode w_ph = 60 meV, PHONON ONLY (mu=0).
+# Axis calibration: lambda 0..3 over device x 86.047..286.576;
+# Tc 0 K at device y 637.806, 25 K per 11.72 device units.
+# In-plot legend markers near lambda=1.445 removed.
+series,lambda,tc_K
+eliashberg,0.4000,16.436
+eliashberg,0.6000,39.234
+eliashberg,0.7000,50.447
+eliashberg,0.8000,61.085
+eliashberg,1.0000,80.182
+eliashberg,1.2000,96.754
+eliashberg,1.4000,111.385
+eliashberg,1.6000,124.544
+eliashberg,1.8000,136.606
+eliashberg,2.0000,147.864
+eliashberg,2.2000,158.269
+eliashberg,2.4000,168.242
+eliashberg,2.6000,177.505
+eliashberg,2.8000,186.290
+scdft_paper,0.4000,21.898
+scdft_paper,0.6000,43.652
+scdft_paper,0.8000,63.319
+scdft_paper,1.0000,80.512
+scdft_paper,1.2000,95.665
+scdft_paper,1.4000,109.392
+scdft_paper,1.6000,121.551
+scdft_paper,1.8000,134.140
+scdft_paper,2.0000,146.773
+scdft_paper,2.2000,156.890
+scdft_paper,2.4000,166.722
+scdft_paper,2.6000,176.366
+scdft_paper,2.8000,185.437

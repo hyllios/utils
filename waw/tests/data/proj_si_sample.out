@@ -1,0 +1,137 @@
+
+     Program PROJWFC v.7.5 starts on 14Jul2026 at 12: 4:26 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       1 processor cores
+     Number of MPI processes:                 1
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+     3810 MiB available memory on the printing compute node when the environment starts
+
+
+     Reading xml data from directory:
+
+     ./out/si_iso.save/
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         583     583    199                 9257     9257    1759
+
+     Using Slab Decomposition
+
+
+     Gaussian broadening (default values): ngauss,degauss=   0    0.000735
+
+
+     Calling projwave .... 
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+  Problem Sizes 
+  natomwfc =            8
+  nbnd     =            4
+  nkstot   =           64
+  npwx     =         1174
+  nkb      =           36
+
+
+     Atomic states used for projection
+     (read from pseudopotential files):
+
+     state #   1: atom   1 (Si ), wfc  1 (l=0 m= 1)
+     state #   2: atom   1 (Si ), wfc  2 (l=1 m= 1)
+     state #   3: atom   1 (Si ), wfc  2 (l=1 m= 2)
+     state #   4: atom   1 (Si ), wfc  2 (l=1 m= 3)
+     state #   5: atom   2 (Si ), wfc  1 (l=0 m= 1)
+     state #   6: atom   2 (Si ), wfc  2 (l=1 m= 1)
+     state #   7: atom   2 (Si ), wfc  2 (l=1 m= 2)
+     state #   8: atom   2 (Si ), wfc  2 (l=1 m= 3)
+
+ k =   0.0000000000  0.0000000000  0.0000000000
+==== e(   1) =    -5.73167 eV ==== 
+     psi = 0.498*[#   1]+0.498*[#   5]
+    |psi|^2 = 0.996
+==== e(   2) =     6.23496 eV ==== 
+     psi = 0.219*[#   3]+0.218*[#   7]+0.156*[#   4]+0.156*[#   8]+0.107*[#   6]
+          +0.106*[#   2]
+    |psi|^2 = 0.962
+==== e(   3) =     6.23505 eV ==== 
+     psi = 0.243*[#   8]+0.241*[#   4]+0.200*[#   3]+0.195*[#   7]+0.041*[#   2]
+          +0.041*[#   6]
+    |psi|^2 = 0.962
+==== e(   4) =     6.23507 eV ==== 
+     psi = 0.334*[#   2]+0.332*[#   6]+0.083*[#   4]+0.083*[#   8]+0.065*[#   7]
+          +0.065*[#   3]
+    |psi|^2 = 0.962
+
+ k =   0.1767766953  0.1767766953 -0.1767766953
+==== e(   1) =    -4.93213 eV ==== 
+     psi = 0.381*[#   1]+0.381*[#   5]+0.039*[#   2]+0.039*[#   3]+0.039*[#   4]
+          +0.039*[#   6]+0.039*[#   7]+0.039*[#   8]
+    |psi|^2 = 0.996
+==== e(   2) =     2.30364 eV ==== 
+     psi = 0.140*[#   1]+0.140*[#   5]+0.118*[#   2]+0.118*[#   4]+0.118*[#   3]
+          +0.118*[#   6]+0.118*[#   7]+0.118*[#   8]
+    |psi|^2 = 0.987
+==== e(   3) =     5.47333 eV ==== 
+     psi = 0.280*[#   7]+0.279*[#   3]+0.138*[#   2]+0.138*[#   6]+0.074*[#   4]
+          +0.074*[#   8]
+    |psi|^2 = 0.981
+==== e(   4) =     5.47345 eV ==== 
+     psi = 0.253*[#   4]+0.253*[#   8]+0.190*[#   6]+0.189*[#   2]+0.048*[#   7]
+          +0.048*[#   3]
+    |psi|^2 = 0.981
+
+ k =   0.3535533906  0.3535533906 -0.3535533906
+==== e(   1) =    -3.40061 eV ==== 
+     psi = 0.383*[#   1]+0.383*[#   5]+0.038*[#   2]+0.038*[#   3]+0.038*[#   4]
+          +0.038*[#   6]+0.038*[#   7]+0.038*[#   8]
+    |psi|^2 = 0.997
+==== e(   2) =    -0.73979 eV ==== 
+     psi = 0.126*[#   2]+0.126*[#   4]+0.126*[#   6]+0.126*[#   8]+0.126*[#   3]
+          +0.126*[#   7]+0.115*[#   1]+0.115*[#   5]
+    |psi|^2 = 0.987
+==== e(   3) =     5.03392 eV ==== 
+     psi = 0.254*[#   6]+0.254*[#   2]+0.199*[#   7]+0.199*[#   3]+0.041*[#   8]
+          +0.041*[#   4]
+    |psi|^2 = 0.989
+==== e(   4) =     5.03395 eV ==== 
+     psi = 0.288*[#   4]+0.288*[#   8]+0.131*[#   3]+0.130*[#   7]+0.076*[#   6]
+          +0.075*[#   2]
+    |psi|^2 = 0.989
+
+ k =   0.5303300859  0.5303300859 -0.5303300859
+==== e(   1) =    -4.93196 eV ==== 
+     psi = 0.381*[#   1]+0.381*[#   5]+0.039*[#   2]+0.039*[#   3]+0.039*[#   4]
+          +0.039*[#   6]+0.039*[#   7]+0.039*[#   8]
+    |psi|^2 = 0.996
+==== e(   2) =     2.30355 eV ==== 
+     psi = 0.140*[#   1]+0.140*[#   5]+0.118*[#   2]+0.118*[#   3]+0.118*[#   4]
+          +0.118*[#   8]+0.118*[#   6]+0.118*[#   7]
+    |psi|^2 = 0.987
+==== e(   3) =     5.47332 eV ==== 
+     psi = 0.294*[#   7]+0.293*[#   3]+0.140*[#   6]+0.140*[#   2]+0.057*[#   8]
+          +0.057*[#   4]
+    |psi|^2 = 0.981
+==== e(   4) =     5.47397 eV ==== 
+     psi = 0.271*[#   8]+0.270*[#   4]+0.188*[#   2]+0.187*[#   6]+0.033*[#   3]
+          +0.033*[#   7]
+    |psi|^2 = 0.982

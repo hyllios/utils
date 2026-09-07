@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "mgconi2o4",
+ "created": "2026-08-06T11:27:30",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/mgconi2o4_symm912",
+ "note": "migrated from workflows/notebooks/runs/mgconi2o4_symm912; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "symm912",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:30"
+}

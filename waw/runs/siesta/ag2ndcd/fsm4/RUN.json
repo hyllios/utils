@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "ag2ndcd",
+ "created": "2026-08-06T11:27:23",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/ag2ndcd_fsm4",
+ "note": "migrated from workflows/notebooks/runs/ag2ndcd_fsm4; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "fsm4",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:23"
+}

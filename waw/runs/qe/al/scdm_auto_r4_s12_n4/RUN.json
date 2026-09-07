@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "al",
+ "created": "2026-08-06T11:27:24",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/al_scdm_auto_r4_s12_n4",
+ "note": "migrated from workflows/notebooks/runs/al_scdm_auto_r4_s12_n4; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "scdm_auto_r4_s12_n4",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:24"
+}

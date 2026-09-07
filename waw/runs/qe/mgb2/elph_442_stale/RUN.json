@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "mgb2",
+ "created": "2026-08-06T11:27:28",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/mgb2_elph_442_stale",
+ "note": "migrated from workflows/notebooks/runs/mgb2_elph_442_stale; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "elph_442_stale",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:28"
+}

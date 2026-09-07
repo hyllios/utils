@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "nio",
+ "created": "2026-08-06T11:27:26",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/diagvar_nio_np16",
+ "note": "migrated from workflows/notebooks/runs/diagvar_nio_np16; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "diagvar_np16",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:26"
+}

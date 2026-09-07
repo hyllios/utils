@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "pt",
+ "created": "2026-08-06T11:27:35",
+ "host": "aisis",
+ "migrated_from": "workflows/w90tutorial/runs/pt_scdm",
+ "note": "migrated from workflows/w90tutorial/runs/pt_scdm; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "scdm",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:35"
+}

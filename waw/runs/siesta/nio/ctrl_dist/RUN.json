@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "nio",
+ "created": "2026-08-06T11:27:26",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/ctrl_NiO_dist",
+ "note": "migrated from workflows/notebooks/runs/ctrl_NiO_dist; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "ctrl_dist",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:26"
+}

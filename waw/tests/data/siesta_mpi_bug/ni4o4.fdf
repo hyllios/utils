@@ -1,0 +1,50 @@
+SystemName   ni4o4
+SystemLabel  ni4o4
+
+NumberOfAtoms    8
+NumberOfSpecies  2
+
+%block ChemicalSpeciesLabel
+  1  28  Ni
+  2   8  O
+%endblock ChemicalSpeciesLabel
+
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+  4.1700000000 0.0000000000 0.0000000000
+  0.0000000000 4.1700000000 0.0000000000
+  0.0000000000 0.0000000000 4.1700000000
+%endblock LatticeVectors
+
+AtomicCoordinatesFormat Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+  0.0000000000 0.0000000000 0.0000000000  1
+  0.5000000000 0.0000000000 0.0000000000  2
+  0.0000000000 0.5000000000 0.5000000000  1
+  0.5000000000 0.5000000000 0.5000000000  2
+  0.5000000000 0.0000000000 0.5000000000  1
+  0.0000000000 0.0000000000 0.5000000000  2
+  0.5000000000 0.5000000000 0.0000000000  1
+  0.0000000000 0.5000000000 0.0000000000  2
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+PAO.BasisSize DZP
+XC.Functional GGA
+XC.Authors PBE
+MeshCutoff 456.0 Ry
+Spin non-polarized
+ElectronicTemperature 0.1000 eV
+
+%block kgrid.MonkhorstPack
+  8 0 0  0.0
+  0 8 0  0.0
+  0 0 8  0.0
+%endblock kgrid.MonkhorstPack
+
+SCF.Mixer.Method Pulay
+SCF.Mixer.History 20
+SCF.Mixer.Weight 0.1
+SCF.DM.Tolerance 1.0e-5
+Max.SCF.Iterations 300
+
+WriteForces T

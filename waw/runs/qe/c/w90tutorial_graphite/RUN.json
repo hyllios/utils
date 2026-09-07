@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "c",
+ "created": "2026-08-06T11:27:34",
+ "host": "aisis",
+ "migrated_from": "workflows/w90tutorial/runs/graphite",
+ "note": "migrated from workflows/w90tutorial/runs/graphite; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "graphite",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:34"
+}

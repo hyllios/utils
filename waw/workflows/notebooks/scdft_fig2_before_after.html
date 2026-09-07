@@ -1,0 +1,375 @@
+<title>SCDFT T&#8323; vs the published Fig. 2 — before and after the window fix</title>
+<style>
+  :root {
+    --ground:#f9f9f7; --plate:#fcfcfb;
+    --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --hair:rgba(11,11,11,.10);
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+    --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0d0d0d; --plate:#1a1a19;
+      --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+      --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,.10);
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0d0d0d; --plate:#1a1a19;
+    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+  :root[data-theme="light"] {
+    --ground:#f9f9f7; --plate:#fcfcfb;
+    --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --hair:rgba(11,11,11,.10);
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  }
+
+  .page {
+    background:var(--ground); color:var(--ink); min-height:100vh;
+    font-family:var(--sans); font-size:15.5px; line-height:1.62;
+    padding:clamp(28px,5vw,64px) 20px 72px;
+    display:flex; flex-direction:column; align-items:center; gap:38px;
+  }
+  .band { width:100%; max-width:912px; display:flex; flex-direction:column; gap:38px; }
+  .measure { max-width:66ch; }
+
+  .eyebrow {
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 14px;
+  }
+  h1 {
+    font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.35rem);
+    line-height:1.14; letter-spacing:-.015em; text-wrap:balance; margin:0 0 .5em;
+  }
+  h2 {
+    font-family:var(--serif); font-weight:600; font-size:1.22rem; line-height:1.3;
+    letter-spacing:-.01em; text-wrap:balance; margin:0 0 .35em;
+  }
+  p { margin:0 0 1.05em; color:var(--ink-2); }
+  p:last-child { margin-bottom:0; }
+  .lede { color:var(--ink); font-size:1.06rem; }
+  b, strong { color:var(--ink); font-weight:650; }
+
+  /* the answer to the question, before any chart */
+  .verdict { display:grid; gap:1px; background:var(--hair);
+              border:1px solid var(--hair); border-radius:10px; overflow:hidden; }
+  .verdict > div { background:var(--plate); padding:13px 16px;
+                    display:grid; grid-template-columns:8.5rem 1fr; gap:4px 16px; }
+  @media (max-width:560px) { .verdict > div { grid-template-columns:1fr; } }
+  .vk { font-family:var(--mono); font-size:11.5px; letter-spacing:.06em;
+         text-transform:uppercase; color:var(--muted); padding-top:.28em; }
+  .vv { color:var(--ink-2); }
+  .vv b { font-family:var(--mono); font-size:.94em; font-variant-numeric:tabular-nums; }
+
+  figure { margin:0; background:var(--plate); border:1px solid var(--hair);
+            border-radius:12px; padding:20px 18px 12px;
+            display:flex; flex-direction:column; gap:10px; }
+  figcaption { font-size:.87rem; color:var(--ink-2); margin:0 2px; }
+  .scroller { overflow-x:auto; }
+  svg.chart { width:100%; min-width:600px; height:auto; display:block; }
+
+  .grid { stroke:var(--grid); stroke-width:1; }
+  .axis { stroke:var(--axis); stroke-width:1; }
+  .tick { fill:var(--muted); font-family:var(--mono); font-size:10.5px; }
+  .axlab { fill:var(--ink-2); font-family:var(--sans); font-size:12.5px; }
+  .ln { fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .dash { stroke-dasharray:6 4; }
+  .s1 { stroke:var(--s1); } .s2 { stroke:var(--s2); } .s3 { stroke:var(--s3); }
+  .ref { stroke:var(--muted); stroke-width:1.5; }
+  .mk { stroke:var(--plate); stroke-width:2; }
+  .mk.s1 { fill:var(--s1); }
+  .dl { font-family:var(--sans); font-size:12.5px; font-weight:600; stroke:none; }
+  .dl.s1 { fill:var(--s1); } .dl.s2 { fill:var(--s2); }
+  .dl.s3 { fill:var(--s3); } .dl.ref { fill:var(--muted); font-weight:500; }
+  .unity { stroke:var(--axis); stroke-width:1.5; stroke-dasharray:2 3; }
+  .unity-lab { fill:var(--muted); font-size:10px; letter-spacing:.05em;
+                text-transform:uppercase; }
+  .bandfill { fill:var(--s3); opacity:.13; stroke:none; }
+  .hit { fill:transparent; }
+  .xh { stroke:var(--axis); stroke-width:1; opacity:0; pointer-events:none; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:7px 20px; margin:0 2px;
+             font-size:.84rem; color:var(--ink-2); }
+  .legend span { display:inline-flex; align-items:center; gap:8px; }
+  .sw { width:17px; height:3px; border-radius:2px; flex:none; }
+
+  table { border-collapse:collapse; width:100%; font-family:var(--mono);
+           font-size:.79rem; font-variant-numeric:tabular-nums; }
+  th, td { text-align:right; padding:6px 9px; border-bottom:1px solid var(--grid);
+            white-space:nowrap; }
+  thead th { color:var(--muted); font-weight:600; font-size:.72rem;
+              letter-spacing:.05em; text-transform:uppercase; }
+  td:first-child, th:first-child { text-align:left; }
+  tbody tr:last-child td { border-bottom:none; }
+
+  .tip { position:fixed; pointer-events:none; opacity:0; transition:opacity .1s;
+          background:var(--plate); color:var(--ink); border:1px solid var(--hair);
+          border-radius:8px; padding:9px 11px; font-family:var(--mono);
+          font-size:.76rem; line-height:1.55; white-space:pre; z-index:9;
+          box-shadow:0 6px 20px rgba(0,0,0,.18); font-variant-numeric:tabular-nums; }
+  :focus-visible { outline:2px solid var(--s1); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce) { .tip { transition:none; } }
+</style>
+
+<div class="page"><div class="band">
+
+  <header class="measure">
+    <p class="eyebrow">Phys. Rev. Lett. 125, 057001 (2020) &middot; Fig. 2 &middot;
+      Einstein mode 60 meV &middot; phonon only</p>
+    <h1>SCDFT T&#8323; against the published Fig. 2, before and after the
+      energy-window fix</h1>
+    <p class="lede">The published curves are digitised from the PDF's vector drawing
+      data, so they are exact rather than eyeballed. Both panels use the same
+      digitisation; only waw's own numbers differ between before and after.</p>
+  </header>
+
+  <div class="verdict measure">
+    <div><span class="vk">Before</span><span class="vv">Ratio to Eliashberg bottoms
+      at <b>1.004</b> near &lambda;&nbsp;=&nbsp;1.4, then climbs away monotonically
+      to <b>1.023</b>. Never crosses below Eliashberg at all.</span></div>
+    <div><span class="vk">After</span><span class="vv">Crosses below at
+      <b>&lambda;&nbsp;&asymp;&nbsp;1</b>, dips to <b>0.959</b>, then returns toward
+      1 &mdash; the shape the Letter reports (<b>0.976</b> minimum).</span></div>
+    <div><span class="vk">On the eye</span><span class="vv">Invisible in absolute
+      T&#8323;: the fix moves it by a few percent. The change is qualitative only in
+      the ratio, which is where Fig. 2's claim lives.</span></div>
+  </div>
+
+  <figure>
+    <h2>Fig. 2 as published, with waw overlaid</h2>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--muted)"></i>Eliashberg (waw; the
+        published curve agrees to 0.3&ndash;0.8%)</span>
+      <span><i class="sw" style="background:var(--s1)"></i>SCDFT, published</span>
+      <span><i class="sw" style="background:var(--s2)"></i>SCDFT, waw before</span>
+      <span><i class="sw" style="background:var(--s3)"></i>SCDFT, waw after</span>
+    </div>
+    <div class="scroller"><svg viewBox="0 0 720 380" role="img" class="chart" data-key="a"
+     aria-label="Tc versus lambda: published Eliashberg and SCDFT against waw
+     before and after the energy-window fix. All curves lie within a few percent.">
+  <line class="grid" x1="62" x2="608" y1="332.00" y2="332.00"/>
+<text class="tick" x="52" y="336.00" text-anchor="end">0</text>
+<line class="grid" x1="62" x2="608" y1="254.50" y2="254.50"/>
+<text class="tick" x="52" y="258.50" text-anchor="end">50</text>
+<line class="grid" x1="62" x2="608" y1="177.00" y2="177.00"/>
+<text class="tick" x="52" y="181.00" text-anchor="end">100</text>
+<line class="grid" x1="62" x2="608" y1="99.50" y2="99.50"/>
+<text class="tick" x="52" y="103.50" text-anchor="end">150</text>
+<line class="grid" x1="62" x2="608" y1="22.00" y2="22.00"/>
+<text class="tick" x="52" y="26.00" text-anchor="end">200</text>
+<line class="axis" x1="62" x2="608" y1="332" y2="332"/>
+<text class="tick" x="104.00" y="352" text-anchor="middle">0.5</text>
+<text class="tick" x="209.00" y="352" text-anchor="middle">1</text>
+<text class="tick" x="314.00" y="352" text-anchor="middle">1.5</text>
+<text class="tick" x="419.00" y="352" text-anchor="middle">2</text>
+<text class="tick" x="524.00" y="352" text-anchor="middle">2.5</text>
+<text class="axlab" x="335.0" y="372" text-anchor="middle">electron–phonon coupling λ</text>
+<text class="axlab" transform="translate(16,177.0) rotate(-90)" text-anchor="middle">Tᴄ (K)</text>
+  <path class="ln ref" d="M 83.00 306.72 L 125.00 271.57 L 167.00 237.82 L 209.00 208.31 L 251.00 182.65 L 293.00 159.95 L 335.00 139.51 L 377.00 120.81 L 419.00 103.52 L 461.00 87.36 L 503.00 72.15 L 545.00 57.75 L 587.00 44.05"/>
+  <path class="ln s1" d="M 83.00 298.06 L 125.00 264.34 L 167.00 233.86 L 209.00 207.21 L 251.00 183.72 L 293.00 162.44 L 335.00 143.60 L 377.00 124.08 L 419.00 104.50 L 461.00 88.82 L 503.00 73.58 L 545.00 58.63 L 587.00 44.57"/>
+  <path class="ln s2 dash" d="M 83.00 297.96 L 125.00 263.89 L 167.00 232.90 L 209.00 205.56 L 251.00 181.19 L 293.00 159.09 L 335.00 138.72 L 377.00 119.68 L 419.00 101.72 L 461.00 84.64 L 503.00 68.30 L 545.00 52.60 L 587.00 37.46"/>
+  <path class="ln s3" d="M 83.00 298.96 L 125.00 266.07 L 167.00 236.26 L 209.00 210.11 L 251.00 186.95 L 293.00 166.10 L 335.00 147.05 L 377.00 129.41 L 419.00 112.92 L 461.00 97.38 L 503.00 82.64 L 545.00 68.61 L 587.00 55.19"/>
+  <circle class="mk s1" cx="83.00" cy="298.06" r="4"/><circle class="mk s1" cx="125.00" cy="264.34" r="4"/><circle class="mk s1" cx="167.00" cy="233.86" r="4"/><circle class="mk s1" cx="209.00" cy="207.21" r="4"/><circle class="mk s1" cx="251.00" cy="183.72" r="4"/><circle class="mk s1" cx="293.00" cy="162.44" r="4"/><circle class="mk s1" cx="335.00" cy="143.60" r="4"/><circle class="mk s1" cx="377.00" cy="124.08" r="4"/><circle class="mk s1" cx="419.00" cy="104.50" r="4"/><circle class="mk s1" cx="461.00" cy="88.82" r="4"/><circle class="mk s1" cx="503.00" cy="73.58" r="4"/><circle class="mk s1" cx="545.00" cy="58.63" r="4"/><circle class="mk s1" cx="587.00" cy="44.57" r="4"/>
+  <text class="dl ref" x="616" y="30.1">Eliashberg</text>
+  <text class="dl s1" x="616" y="46.6">published</text>
+  <text class="dl s3" x="616" y="69.2">waw</text>
+  <rect class="hit" x="60.25" y="22" width="45.50" height="310" data-x="83.00" data-rows="lambda = 0.4&#10;Eliashberg (waw): 16.3 K&#10;published SCDFT: 21.9 K&#10;waw SCDFT, before: 22.0 K&#10;waw SCDFT, after: 21.3 K" data-chart="a"/>
+<rect class="hit" x="102.25" y="22" width="45.50" height="310" data-x="125.00" data-rows="lambda = 0.6&#10;Eliashberg (waw): 39.0 K&#10;published SCDFT: 43.7 K&#10;waw SCDFT, before: 43.9 K&#10;waw SCDFT, after: 42.5 K" data-chart="a"/>
+<rect class="hit" x="144.25" y="22" width="45.50" height="310" data-x="167.00" data-rows="lambda = 0.8&#10;Eliashberg (waw): 60.8 K&#10;published SCDFT: 63.3 K&#10;waw SCDFT, before: 63.9 K&#10;waw SCDFT, after: 61.8 K" data-chart="a"/>
+<rect class="hit" x="186.25" y="22" width="45.50" height="310" data-x="209.00" data-rows="lambda = 1&#10;Eliashberg (waw): 79.8 K&#10;published SCDFT: 80.5 K&#10;waw SCDFT, before: 81.6 K&#10;waw SCDFT, after: 78.6 K" data-chart="a"/>
+<rect class="hit" x="228.25" y="22" width="45.50" height="310" data-x="251.00" data-rows="lambda = 1.2&#10;Eliashberg (waw): 96.4 K&#10;published SCDFT: 95.7 K&#10;waw SCDFT, before: 97.3 K&#10;waw SCDFT, after: 93.6 K" data-chart="a"/>
+<rect class="hit" x="270.25" y="22" width="45.50" height="310" data-x="293.00" data-rows="lambda = 1.4&#10;Eliashberg (waw): 111.0 K&#10;published SCDFT: 109.4 K&#10;waw SCDFT, before: 111.6 K&#10;waw SCDFT, after: 107.0 K" data-chart="a"/>
+<rect class="hit" x="312.25" y="22" width="45.50" height="310" data-x="335.00" data-rows="lambda = 1.6&#10;Eliashberg (waw): 124.2 K&#10;published SCDFT: 121.6 K&#10;waw SCDFT, before: 124.7 K&#10;waw SCDFT, after: 119.3 K" data-chart="a"/>
+<rect class="hit" x="354.25" y="22" width="45.50" height="310" data-x="377.00" data-rows="lambda = 1.8&#10;Eliashberg (waw): 136.2 K&#10;published SCDFT: 134.1 K&#10;waw SCDFT, before: 137.0 K&#10;waw SCDFT, after: 130.7 K" data-chart="a"/>
+<rect class="hit" x="396.25" y="22" width="45.50" height="310" data-x="419.00" data-rows="lambda = 2&#10;Eliashberg (waw): 147.4 K&#10;published SCDFT: 146.8 K&#10;waw SCDFT, before: 148.6 K&#10;waw SCDFT, after: 141.3 K" data-chart="a"/>
+<rect class="hit" x="438.25" y="22" width="45.50" height="310" data-x="461.00" data-rows="lambda = 2.2&#10;Eliashberg (waw): 157.8 K&#10;published SCDFT: 156.9 K&#10;waw SCDFT, before: 159.6 K&#10;waw SCDFT, after: 151.4 K" data-chart="a"/>
+<rect class="hit" x="480.25" y="22" width="45.50" height="310" data-x="503.00" data-rows="lambda = 2.4&#10;Eliashberg (waw): 167.6 K&#10;published SCDFT: 166.7 K&#10;waw SCDFT, before: 170.1 K&#10;waw SCDFT, after: 160.9 K" data-chart="a"/>
+<rect class="hit" x="522.25" y="22" width="45.50" height="310" data-x="545.00" data-rows="lambda = 2.6&#10;Eliashberg (waw): 176.9 K&#10;published SCDFT: 176.4 K&#10;waw SCDFT, before: 180.3 K&#10;waw SCDFT, after: 169.9 K" data-chart="a"/>
+<rect class="hit" x="564.25" y="22" width="45.50" height="310" data-x="587.00" data-rows="lambda = 2.8&#10;Eliashberg (waw): 185.8 K&#10;published SCDFT: 185.4 K&#10;waw SCDFT, before: 190.0 K&#10;waw SCDFT, after: 178.6 K" data-chart="a"/>
+</svg></div>
+    <figcaption>Every curve sits within a few percent of the others &mdash; which is
+      why a correct-looking T&#8323; was never evidence the kernels were right.</figcaption>
+  </figure>
+
+  <figure>
+    <h2>The ratio to Eliashberg &mdash; where the fix shows</h2>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s1)"></i>published</span>
+      <span><i class="sw" style="background:var(--s2)"></i>waw, before
+        (window 30&nbsp;&omega;<sub>max</sub>)</span>
+      <span><i class="sw" style="background:var(--s3)"></i>waw, after
+        (window &rarr;&nbsp;&infin;)</span>
+      <span><i class="sw" style="background:var(--s3);opacity:.32;height:11px"></i>waw,
+        window 5&nbsp;eV to &infin;</span>
+    </div>
+    <div class="scroller"><svg viewBox="0 0 720 380" role="img" class="chart" data-key="b"
+     aria-label="Ratio of SCDFT to Eliashberg Tc versus lambda. Before the fix the
+     ratio never falls below one; after it, it crosses below one near lambda one,
+     dips to 0.96 and returns, which is the published behaviour.">
+  <line class="grid" x1="62" x2="608" y1="303.82" y2="303.82"/>
+<text class="tick" x="52" y="307.82" text-anchor="end">0.96</text>
+<line class="grid" x1="62" x2="608" y1="247.45" y2="247.45"/>
+<text class="tick" x="52" y="251.45" text-anchor="end">0.98</text>
+<line class="grid" x1="62" x2="608" y1="191.09" y2="191.09"/>
+<text class="tick" x="52" y="195.09" text-anchor="end">1.00</text>
+<line class="grid" x1="62" x2="608" y1="134.73" y2="134.73"/>
+<text class="tick" x="52" y="138.73" text-anchor="end">1.02</text>
+<line class="grid" x1="62" x2="608" y1="78.36" y2="78.36"/>
+<text class="tick" x="52" y="82.36" text-anchor="end">1.04</text>
+<line class="grid" x1="62" x2="608" y1="22.00" y2="22.00"/>
+<text class="tick" x="52" y="26.00" text-anchor="end">1.06</text>
+<line class="axis" x1="62" x2="608" y1="332" y2="332"/>
+<text class="tick" x="125.49" y="352" text-anchor="middle">1</text>
+<text class="tick" x="252.47" y="352" text-anchor="middle">1.5</text>
+<text class="tick" x="379.44" y="352" text-anchor="middle">2</text>
+<text class="tick" x="506.42" y="352" text-anchor="middle">2.5</text>
+<text class="axlab" x="335.0" y="372" text-anchor="middle">electron–phonon coupling λ</text>
+<text class="axlab" transform="translate(16,177.0) rotate(-90)" text-anchor="middle">Tᴄ (SCDFT) / Tᴄ (Eliashberg)</text>
+  <line class="unity" x1="62" x2="608" y1="191.09"
+        y2="191.09"/>
+  <text class="tick unity-lab" x="68" y="184.09">equal to Eliashberg</text>
+  <path class="bandfill" d="M 74.70 144.53 L 125.49 231.94 L 176.28 272.11 L 227.07 291.93 L 277.86 301.51 L 328.65 305.81 L 379.44 306.99 L 430.23 306.44 L 481.02 304.87 L 531.81 302.66 L 582.60 300.13 L 582.60 231.15 L 531.81 237.50 L 481.02 243.50 L 430.23 248.76 L 379.44 252.90 L 328.65 255.15 L 277.86 254.09 L 227.07 247.50 L 176.28 230.31 L 125.49 192.30 L 74.70 106.29 Z"/>
+  <path class="ln s2 dash" d="M 74.70 43.82 L 125.49 128.28 L 176.28 163.47 L 227.07 177.04 L 277.86 179.48 L 328.65 176.00 L 379.44 168.93 L 430.23 159.78 L 481.02 149.39 L 531.81 138.18 L 582.60 126.58"/>
+  <path class="ln s3" d="M 74.70 144.53 L 125.49 231.94 L 176.28 272.11 L 227.07 291.93 L 277.86 301.51 L 328.65 305.81 L 379.44 306.99 L 430.23 306.44 L 481.02 304.87 L 531.81 302.66 L 582.60 300.13"/>
+  <path class="ln s1" d="M 74.70 88.02 L 125.49 179.49 L 176.28 222.81 L 227.07 241.52 L 277.86 258.82 L 328.65 241.96 L 379.44 211.88 L 430.23 215.65 L 481.02 216.55 L 531.81 209.17 L 582.60 204.00"/>
+  <circle class="mk s1" cx="74.70" cy="88.02" r="4"/><circle class="mk s1" cx="125.49" cy="179.49" r="4"/><circle class="mk s1" cx="176.28" cy="222.81" r="4"/><circle class="mk s1" cx="227.07" cy="241.52" r="4"/><circle class="mk s1" cx="277.86" cy="258.82" r="4"/><circle class="mk s1" cx="328.65" cy="241.96" r="4"/><circle class="mk s1" cx="379.44" cy="211.88" r="4"/><circle class="mk s1" cx="430.23" cy="215.65" r="4"/><circle class="mk s1" cx="481.02" cy="216.55" r="4"/><circle class="mk s1" cx="531.81" cy="209.17" r="4"/><circle class="mk s1" cx="582.60" cy="204.00" r="4"/>
+  <text class="dl s2" x="616" y="130.6">before fix</text>
+  <text class="dl s1" x="616" y="208.0">published</text>
+  <text class="dl s3" x="616" y="304.1">after fix</text>
+  <rect class="hit" x="47.40" y="22" width="54.60" height="310" data-x="74.70" data-rows="lambda = 0.8&#10;published: 1.0366&#10;waw, before fix: 1.0523&#10;waw, after fix: 1.0165&#10;waw, 5 eV band: 1.0301" data-chart="b"/>
+<rect class="hit" x="98.19" y="22" width="54.60" height="310" data-x="125.49" data-rows="lambda = 1&#10;published: 1.0041&#10;waw, before fix: 1.0223&#10;waw, after fix: 0.9855&#10;waw, 5 eV band: 0.9996" data-chart="b"/>
+<rect class="hit" x="148.98" y="22" width="54.60" height="310" data-x="176.28" data-rows="lambda = 1.2&#10;published: 0.9887&#10;waw, before fix: 1.0098&#10;waw, after fix: 0.9713&#10;waw, 5 eV band: 0.9861" data-chart="b"/>
+<rect class="hit" x="199.77" y="22" width="54.60" height="310" data-x="227.07" data-rows="lambda = 1.4&#10;published: 0.9821&#10;waw, before fix: 1.0050&#10;waw, after fix: 0.9642&#10;waw, 5 eV band: 0.9800" data-chart="b"/>
+<rect class="hit" x="250.56" y="22" width="54.60" height="310" data-x="277.86" data-rows="lambda = 1.6&#10;published: 0.9760&#10;waw, before fix: 1.0041&#10;waw, after fix: 0.9608&#10;waw, 5 eV band: 0.9776" data-chart="b"/>
+<rect class="hit" x="301.35" y="22" width="54.60" height="310" data-x="328.65" data-rows="lambda = 1.8&#10;published: 0.9819&#10;waw, before fix: 1.0054&#10;waw, after fix: 0.9593&#10;waw, 5 eV band: 0.9773" data-chart="b"/>
+<rect class="hit" x="352.14" y="22" width="54.60" height="310" data-x="379.44" data-rows="lambda = 2&#10;published: 0.9926&#10;waw, before fix: 1.0079&#10;waw, after fix: 0.9589&#10;waw, 5 eV band: 0.9781" data-chart="b"/>
+<rect class="hit" x="402.93" y="22" width="54.60" height="310" data-x="430.23" data-rows="lambda = 2.2&#10;published: 0.9913&#10;waw, before fix: 1.0111&#10;waw, after fix: 0.9591&#10;waw, 5 eV band: 0.9795" data-chart="b"/>
+<rect class="hit" x="453.72" y="22" width="54.60" height="310" data-x="481.02" data-rows="lambda = 2.4&#10;published: 0.9910&#10;waw, before fix: 1.0148&#10;waw, after fix: 0.9596&#10;waw, 5 eV band: 0.9814" data-chart="b"/>
+<rect class="hit" x="504.51" y="22" width="54.60" height="310" data-x="531.81" data-rows="lambda = 2.6&#10;published: 0.9936&#10;waw, before fix: 1.0188&#10;waw, after fix: 0.9604&#10;waw, 5 eV band: 0.9835" data-chart="b"/>
+<rect class="hit" x="555.30" y="22" width="54.60" height="310" data-x="582.60" data-rows="lambda = 2.8&#10;published: 0.9954&#10;waw, before fix: 1.0229&#10;waw, after fix: 0.9613&#10;waw, 5 eV band: 0.9858" data-chart="b"/>
+</svg></div>
+    <figcaption>The frame starts at &lambda;&nbsp;=&nbsp;0.8 because
+      &lambda;&nbsp;=&nbsp;0.4 and 0.6 sit at 1.31&ndash;1.35 and 1.09&ndash;1.13,
+      above the axis, and all three curves agree closely there &mdash; full values in
+      the table. The shaded band spans electronic windows from 5&nbsp;eV to infinite:
+      a parameter of the model, not a numerical error, because |g|&sup2; is constant
+      in &xi; by construction here.</figcaption>
+  </figure>
+
+  <section class="measure">
+    <h2>Why it moved</h2>
+    <p>Not a missing term, which is what the monotonic climb looked like. Both SCDFT
+      kernels have power-law tails in &xi;&prime;, so their energy integrals converge
+      only as 1/L in the window L. The old default
+      L&nbsp;=&nbsp;30&nbsp;&omega;<sub>max</sub> was far from converged, and the
+      error is <b>&lambda;-dependent</b> &mdash; +3.0% at &lambda;&nbsp;=&nbsp;0.4
+      rising to +6.4% at &lambda;&nbsp;=&nbsp;2.8. A &lambda;-dependent convergence
+      error is indistinguishable from a missing term.</p>
+    <p>What is left is 2&ndash;3% with no &lambda; trend, and the window absorbs it:
+      a ~3&nbsp;eV electronic window reproduces the published curve to 0.55% rms. The
+      Letter does not state its window, so this cannot be pinned down further.</p>
+  </section>
+
+  <section class="measure">
+    <h2>Addendum (2026-07-31): the residual is the paper's, not ours</h2>
+    <p>The closing sentence above is now <b>refuted</b>. The raw data behind the
+      Letter's Fig.&nbsp;1 (<span style="font-family:var(--mono)">pdf/fig1.agr</span>,
+      from Antonio) runs on a logarithmic &xi; grid out to <b>&plusmn;27&nbsp;eV</b> &mdash;
+      the authors' own electronic window, which matches waw's converged one. At matched
+      windows the published SCDFT curve sits 2&ndash;3.5% above these equations, and a
+      ~3&nbsp;eV window is not something their calculation used.</p>
+    <p>Three findings settle where that residual lives. First, waw's kernels now agree
+      to 10 digits, pointwise and at T&nbsp;=&nbsp;0, with <b>SCTK</b>
+      (github.com/mitsuaki1987/sctk, scdft_kernel&nbsp;=&nbsp;2) &mdash; a third,
+      fully independent implementation whose kernels are symbolic Matsubara closed
+      forms. Three independent derivations of Eqs.&nbsp;(10)&ndash;(11) agree exactly;
+      any correct solver of the printed theory must produce waw's numbers. Second, the
+      constants are <b>exactly the printed ones</b> and cannot absorb the residual:
+      A.&nbsp;Sanna confirmed (2026-07-31) that his code runs
+      &gamma;&nbsp;=&nbsp;1.330,&nbsp;3.800,&nbsp;1.33000, and that
+      &gamma;&#8323; affects only the gap, not T&#8323; &mdash; a structural
+      property waw shares, since &gamma;&#8323; drops out of the linearized
+      T&#8323; identically (verified: 78.8609&nbsp;K for
+      &gamma;&#8323;&nbsp;=&nbsp;1.33, 1.95 and 5.0 alike). An earlier version of
+      this page proposed that the printed 3.8 was a rounding of SCTK's 3.88; that
+      is <b>retracted</b> &mdash; 3.88 is SCTK's own value. Third, the
+      authors' own two publications disagree with each other by the same margin as
+      with waw: at &lambda;&nbsp;=&nbsp;2, &mu;&nbsp;=&nbsp;0 the ratio is 0.993 in
+      PRL&nbsp;125 but 0.979 in the Nature&nbsp;Rev.&nbsp;Phys. (2024) SI model, in the
+      <i>opposite</i> order to what their two windows imply (waw: 0.963 and 0.965,
+      nearly equal as they must be).</p>
+    <p>Conclusion: no bug in waw, and with the constants pinned by their author the
+      remaining <b>1.5&ndash;2.8%</b> is unexplained but provably outside these
+      kernels. At the confirmed &gamma;'s, waw/published runs
+      0.976, 0.980, 0.985, 0.967, 0.968 across
+      &lambda;&nbsp;=&nbsp;0.4&ndash;2.8. Closing it by fitting would need
+      &gamma;&#8321;&nbsp;&asymp;&nbsp;1.34&ndash;1.35, which those values exclude,
+      so the candidates all lie beyond the printed equations: their electronic
+      window for Fig.&nbsp;2 specifically, their Eliashberg reference, or their
+      numerics.</p>
+  </section>
+
+  <section>
+    <h2 class="measure">Data</h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>&lambda;</th><th>Eliashberg</th><th>SCDFT pub.</th>
+          <th>SCDFT before</th><th>SCDFT after</th>
+          <th>ratio pub.</th><th>ratio before</th><th>ratio after</th></tr></thead>
+        <tbody><tr><td>0.4</td><td>16.3</td><td>21.9</td><td>22.0</td><td>21.3</td><td>1.3323</td><td>1.3466</td><td>1.3068</td></tr>
+<tr><td>0.6</td><td>39.0</td><td>43.7</td><td>43.9</td><td>42.5</td><td>1.1126</td><td>1.1270</td><td>1.0910</td></tr>
+<tr><td>0.8</td><td>60.8</td><td>63.3</td><td>63.9</td><td>61.8</td><td>1.0366</td><td>1.0523</td><td>1.0165</td></tr>
+<tr><td>1</td><td>79.8</td><td>80.5</td><td>81.6</td><td>78.6</td><td>1.0041</td><td>1.0223</td><td>0.9855</td></tr>
+<tr><td>1.2</td><td>96.4</td><td>95.7</td><td>97.3</td><td>93.6</td><td>0.9887</td><td>1.0098</td><td>0.9713</td></tr>
+<tr><td>1.4</td><td>111.0</td><td>109.4</td><td>111.6</td><td>107.0</td><td>0.9821</td><td>1.0050</td><td>0.9642</td></tr>
+<tr><td>1.6</td><td>124.2</td><td>121.6</td><td>124.7</td><td>119.3</td><td>0.9760</td><td>1.0041</td><td>0.9608</td></tr>
+<tr><td>1.8</td><td>136.2</td><td>134.1</td><td>137.0</td><td>130.7</td><td>0.9819</td><td>1.0054</td><td>0.9593</td></tr>
+<tr><td>2</td><td>147.4</td><td>146.8</td><td>148.6</td><td>141.3</td><td>0.9926</td><td>1.0079</td><td>0.9589</td></tr>
+<tr><td>2.2</td><td>157.8</td><td>156.9</td><td>159.6</td><td>151.4</td><td>0.9913</td><td>1.0111</td><td>0.9591</td></tr>
+<tr><td>2.4</td><td>167.6</td><td>166.7</td><td>170.1</td><td>160.9</td><td>0.9910</td><td>1.0148</td><td>0.9596</td></tr>
+<tr><td>2.6</td><td>176.9</td><td>176.4</td><td>180.3</td><td>169.9</td><td>0.9936</td><td>1.0188</td><td>0.9604</td></tr>
+<tr><td>2.8</td><td>185.8</td><td>185.4</td><td>190.0</td><td>178.6</td><td>0.9954</td><td>1.0229</td><td>0.9613</td></tr></tbody>
+      </table>
+    </div>
+    <p class="measure" style="margin-top:1em;font-size:.87rem">T&#8323; in kelvin.
+      &ldquo;Eliashberg&rdquo; is waw's linearized solver; the published Eliashberg
+      curve agrees with it to 0.3&ndash;0.8% with no &lambda; trend, so the reference
+      is sound. Each ratio is formed within its own source, which cancels the axis
+      calibration the two published curves share.</p>
+  </section>
+
+</div></div>
+<div class="tip" id="tip"></div>
+<script>
+const tip = document.getElementById('tip');
+document.querySelectorAll('svg.chart').forEach(svg => {
+  const ns = 'http://www.w3.org/2000/svg';
+  const xh = document.createElementNS(ns, 'line');
+  xh.setAttribute('class', 'xh');
+  xh.setAttribute('y1', 22); xh.setAttribute('y2', 332);
+  svg.appendChild(xh);
+  svg.querySelectorAll('.hit').forEach(r => {
+    const show = e => {
+      xh.setAttribute('x1', r.dataset.x); xh.setAttribute('x2', r.dataset.x);
+      xh.style.opacity = 1;
+      tip.textContent = r.dataset.rows;
+      tip.style.opacity = 1;
+      const w = tip.offsetWidth, h = tip.offsetHeight;
+      let x = e.clientX + 18, y = e.clientY - h - 14;
+      if (x + w > innerWidth - 10) x = e.clientX - w - 18;
+      if (y < 10) y = e.clientY + 20;
+      tip.style.left = x + 'px'; tip.style.top = y + 'px';
+    };
+    r.addEventListener('pointerenter', show);
+    r.addEventListener('pointermove', show);
+  });
+  const hide = () => { tip.style.opacity = 0; xh.style.opacity = 0; };
+  svg.addEventListener('pointerleave', hide);
+});
+</script>

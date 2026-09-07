@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "nio",
+ "created": "2026-08-06T11:27:31",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/mpi_NiO8_np8",
+ "note": "migrated from workflows/notebooks/runs/mpi_NiO8_np8; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "mpi_nio8_np8",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:31"
+}

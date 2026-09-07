@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waw"
+version = "0.1.0"
+description = "A PyTorch Wannier-function engine: disentanglement, wannierisation, and analysis, with a legacy Wannier90 interface and an ASE-based interface."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "torch",
+    "ase",
+    "scipy",
+    "threadpoolctl",
+    # symmetry analysis in interfaces/ase/structure.py (irreducible meshes, which
+    # core/symmetry.py consumes) -- not optional in practice
+    "spglib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-xdist", "z2pack"]
+vis = ["matplotlib", "scikit-image", "plotly"]
+# interfaces/siesta/loader.py reads SIESTA's HSX through sisl; the whole SIESTA
+# route (Loewdin H(R), penetration depth from NAOs) is dead without it
+siesta = ["sisl"]
+
+[tool.setuptools.packages.find]
+include = ["waw*"]
+
+[tool.pytest.ini_options]
+markers = [
+    "regression: cross-validates waw against real wannier90.x/postw90.x output on tutorial-scale systems (slow, minutes total); excluded by default -- run explicitly with `pytest -m regression`",
+]
+addopts = ["-m", "not regression"]

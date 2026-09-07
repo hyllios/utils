@@ -1,0 +1,260 @@
+"""
+Post-processing analysis tools built on a converged Wannier Hamiltonian.
+
+Each tool consumes a `HamiltonianR` (from `waw.hamiltonian.compute_hr`)
+and is independent of the optimization/disentanglement pipeline, so new
+analyses can be added here without touching the core engine.
+"""
+
+from .kpath import KPath, parse_kpoint_path, build_kpath
+from .bands import BandStructure, band_structure
+from .dos   import (
+    DOS,
+    density_of_states,
+    epw_fermi_level,
+    fermi_level_from_electron_count,
+    fermi_level_spin_channels,
+    fermi_surface_dos,
+)
+from .eliashberg import (
+    allen_dynes_tc,
+    lambda_effective,
+    allen_dynes_tc_from_a2f,
+    eliashberg_moments,
+    eliashberg_omega_2,
+    lambda_from_a2f,
+    lambda_matrix,
+)
+from .effective_mass import (
+    BandExtremum,
+    EffectiveMass,
+    SemiconductorBandEdges,
+    DegenerateEffectiveMass,
+    find_band_extrema,
+    effective_mass_tensor,
+    analyze_effective_mass,
+    semiconductor_band_edges,
+    degenerate_effective_mass,
+    masses_along,
+)
+from .topology import (
+    BerryCurvature,
+    BerryCurvatureCartesian,
+    ChernNumber,
+    AHCResult,
+    AnomalousNernstResult,
+    berry_curvature,
+    berry_curvature_cartesian,
+    chern_number,
+    anomalous_hall_conductivity,
+    anomalous_nernst_conductivity,
+)
+from .superfluid import (
+    SuperfluidWeight,
+    superfluid_weight_at_k,
+    superfluid_weight,
+    superfluid_weight_small_gap,
+    reduced_to_si,
+    si_to_reduced,
+    penetration_depth,
+)
+from .transport import (
+    TransportResult,
+    transport_bulk,
+    LCRTransportResult,
+    transport_lcr,
+)
+from .boltzmann import (
+    TDF,
+    BoltzmannTransport,
+    band_velocities,
+    transport_distribution_function,
+    transport_coefficients,
+    boltzmann_dos,
+    dos_limited_relaxation_time,
+)
+from .elph_boltzmann import (
+    LovaTransport,
+    lova_conductivity,
+    lump_sheets,
+    transport_kernel,
+    alpha2f_tr_effective,
+    lambda_tr,
+    stack_spin_channels,
+    spin_resolved_conductivity,
+)
+from .wigner_transport import (
+    WignerConductivity,
+    velocity_matrix,
+    interband_conductivity_correction,
+)
+from .spin_texture import (
+    SpinColoredBands,
+    spin_operator_r,
+    interpolate_spin,
+    spin_colored_bands,
+)
+from .specific_heat import electronic_specific_heat
+from .viscosity import electronic_viscosity
+from .kdotp import KdotpResult, kdotp_coefficients
+from .dmft import (
+    AndersonParameters,
+    bethe_green,
+    dmft_bethe,
+    dmft_selfconsistency,
+    fit_bath,
+    local_green_function,
+    matsubara_frequencies,
+    pade_continuation,
+    quasiparticle_weight,
+    solve_anderson_ed,
+    solve_hubbard_i,
+)
+from .floquet import (
+    drive_amplitude_from_field,
+    floquet_blocks,
+    floquet_convergence,
+    floquet_hamiltonian,
+    floquet_quasi_energies,
+    floquet_spectral_function,
+)
+from .surface import (
+    SurfaceSpectralFunction,
+    SurfaceLayers,
+    surface_transformation,
+    wf_sublayers,
+    build_surface_layers,
+    build_slab,
+    slab_layer_weights,
+    surface_spectral_function,
+)
+from .arpes import (
+    photoemission_matrix_element,
+    wannier_lm_from_projections,
+)
+from .spectral import (
+    SpectralFunction,
+    bloch_spectral_function,
+    quasiparticle_shift,
+)
+from .cpa import (
+    AlloyModel,
+    CPAResult,
+    CPABlochSpectralFunction,
+    virtual_crystal,
+    build_alloy,
+    coherent_potential,
+    cpa_bloch_spectral_function,
+    cpa_conductivity,
+    CPAConductivity,
+)
+
+from .unfolding import (
+    UnfoldedSpectrum, match_supercell_kpoint, primitive_mask,
+    spectral_weights, spectral_function as unfolded_spectral_function,
+)
+
+__all__ = [
+    "KPath",
+    "parse_kpoint_path",
+    "build_kpath",
+    "BandStructure",
+    "band_structure",
+    "DOS",
+    "density_of_states",
+    "BandExtremum",
+    "EffectiveMass",
+    "SemiconductorBandEdges",
+    "DegenerateEffectiveMass",
+    "find_band_extrema",
+    "effective_mass_tensor",
+    "analyze_effective_mass",
+    "semiconductor_band_edges",
+    "degenerate_effective_mass",
+    "masses_along",
+    "BerryCurvature",
+    "ChernNumber",
+    "berry_curvature",
+    "chern_number",
+    "SuperfluidWeight",
+    "superfluid_weight_at_k",
+    "superfluid_weight",
+    "superfluid_weight_small_gap",
+    "reduced_to_si",
+    "si_to_reduced",
+    "penetration_depth",
+    "TransportResult",
+    "transport_bulk",
+    "LCRTransportResult",
+    "transport_lcr",
+    "TDF",
+    "BoltzmannTransport",
+    "band_velocities",
+    "transport_distribution_function",
+    "transport_coefficients",
+    "boltzmann_dos",
+    "LovaTransport",
+    "lova_conductivity",
+    "lump_sheets",
+    "transport_kernel",
+    "alpha2f_tr_effective",
+    "lambda_tr",
+    "stack_spin_channels",
+    "spin_resolved_conductivity",
+    "dos_limited_relaxation_time",
+    "WignerConductivity",
+    "velocity_matrix",
+    "interband_conductivity_correction",
+    "SpinColoredBands",
+    "spin_operator_r",
+    "interpolate_spin",
+    "spin_colored_bands",
+    "electronic_specific_heat",
+    "electronic_viscosity",
+    "KdotpResult",
+    "kdotp_coefficients",
+    "SurfaceSpectralFunction",
+    "SurfaceLayers",
+    "AndersonParameters",
+    "bethe_green",
+    "dmft_bethe",
+    "dmft_selfconsistency",
+    "fit_bath",
+    "local_green_function",
+    "matsubara_frequencies",
+    "pade_continuation",
+    "quasiparticle_weight",
+    "solve_anderson_ed",
+    "solve_hubbard_i",
+    "drive_amplitude_from_field",
+    "floquet_blocks",
+    "floquet_convergence",
+    "floquet_hamiltonian",
+    "floquet_quasi_energies",
+    "floquet_spectral_function",
+    "surface_transformation",
+    "wf_sublayers",
+    "build_surface_layers",
+    "build_slab",
+    "slab_layer_weights",
+    "surface_spectral_function",
+    "photoemission_matrix_element",
+    "wannier_lm_from_projections",
+    "AlloyModel",
+    "CPAResult",
+    "CPABlochSpectralFunction",
+    "virtual_crystal",
+    "build_alloy",
+    "coherent_potential",
+    "cpa_bloch_spectral_function",
+    "cpa_conductivity",
+    "CPAConductivity",
+    "SpectralFunction",
+    "bloch_spectral_function",
+    "quasiparticle_shift",
+    "UnfoldedSpectrum",
+    "match_supercell_kpoint",
+    "primitive_mask",
+    "spectral_weights",
+    "unfolded_spectral_function",
+]

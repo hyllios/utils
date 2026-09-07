@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "al",
+ "created": "2026-08-06T11:27:23",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/al_elph_6cube_gcheck",
+ "note": "migrated from workflows/notebooks/runs/al_elph_6cube_gcheck; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "elph_6cube_gcheck",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:23"
+}

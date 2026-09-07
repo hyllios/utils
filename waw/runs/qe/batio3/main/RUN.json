@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "batio3",
+ "created": "2026-08-06T11:27:25",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/batio3",
+ "note": "migrated from workflows/notebooks/runs/batio3; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "main",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:25"
+}

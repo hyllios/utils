@@ -1,0 +1,24 @@
+{
+ "code": "qe",
+ "compound": "sih4",
+ "created": "2026-08-06T11:27:36",
+ "host": "aisis",
+ "migrated_from": "workflows/w90tutorial/runs/silane",
+ "note": "migrated from workflows/w90tutorial/runs/silane; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "silane",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:36"
+}

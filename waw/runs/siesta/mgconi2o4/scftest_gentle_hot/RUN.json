@@ -1,0 +1,24 @@
+{
+ "code": "siesta",
+ "compound": "mgconi2o4",
+ "created": "2026-08-06T11:27:33",
+ "host": "aisis",
+ "migrated_from": "workflows/notebooks/runs/scftest_gentle_hot",
+ "note": "migrated from workflows/notebooks/runs/scftest_gentle_hot; a symlink remains at the old path so existing notebooks keep working",
+ "owner": "unassigned",
+ "prunable": [
+  "WAVECAR",
+  "CHGCAR",
+  "CHG",
+  "*.wfc*",
+  "*.hub*",
+  "WAVEDER",
+  "vasprun.xml",
+  "PROCAR",
+  "*.save/wfc*"
+ ],
+ "purpose": "scftest_gentle_hot",
+ "settings": {},
+ "status": "live",
+ "updated": "2026-08-06T11:27:33"
+}
